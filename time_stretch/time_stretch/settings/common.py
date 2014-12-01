@@ -17,7 +17,6 @@ from os import getenv
 from configurations import Configuration, values
 
 BASE_DIR = dirname(dirname(dirname(__file__)))
-print BASE_DIR
 
 class Common(Configuration):
 
