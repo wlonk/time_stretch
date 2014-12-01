@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/dev/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+import dj_database_url
 from os.path import join, dirname
 
 from configurations import Configuration, values
@@ -85,7 +86,7 @@ class Common(Configuration):
     # See: https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
     # Note: This key only used for development and testing.
     #       In production, this is changed to a values.SecretValue() setting
-    SECRET_KEY = "CHANGEME!!!"
+    SECRET_KEY = "ZuxWNs9Mx6qyg9qywih2NcQuqngRxxThYpNySAqx"
     # END SECRET CONFIGURATION
 
     # FIXTURE CONFIGURATION
@@ -109,10 +110,14 @@ class Common(Configuration):
     MANAGERS = ADMINS
     # END MANAGER CONFIGURATION
 
-    # DATABASE CONFIGURATION
+    ########## DATABASE CONFIGURATION
     # See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
-    DATABASES = values.DatabaseURLValue('postgres://localhost/time_stretch')
-    # END DATABASE CONFIGURATION
+    # Database settings for Heroku
+    DATABASES = {}
+    DATABASES['default'] = dj_database_url.config(
+        default="postgres://localhost/time_stretch"
+    )
+    ########## END DATABASE CONFIGURATION
 
     # CACHING
     # Do this here because thanks to django-pylibmc-sasl and pylibmc

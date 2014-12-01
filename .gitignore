@@ -30,3 +30,6 @@ node_modules/
 
 # Campass
 .sass-cache
+
+#Sublime 
+time_stretch.sublime-*
