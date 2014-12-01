@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/dev/ref/settings/
 import os
 import dj_database_url
 from os.path import join, dirname
-
+from os import getenv
 from configurations import Configuration, values
 
 BASE_DIR = dirname(dirname(__file__))
@@ -38,7 +38,8 @@ class Common(Configuration):
         'django.contrib.admin',
     )
     THIRD_PARTY_APPS = (
-        'crispy_forms',  # Form layouts
+        'storages',  # serve rom s3 in production
+        'pipeline',  # merge all the statics
         'avatar',  # for user avatars
         'allauth',  # registration
         'allauth.account',  # registration
@@ -236,6 +237,17 @@ class Common(Configuration):
     # SLUGLIFIER
     AUTOSLUG_SLUGIFY_FUNCTION = "slugify.slugify"
     # END SLUGLIFIER
+
+    ####STORAGES####
+    AWS_ACCESS_KEY_ID = getenv('AWS_ACCESS_KEY_ID', '')
+    AWS_SECRET_ACCESS_KEY = getenv('AWS_SECRET_ACCESS_KEY', '')
+    AWS_STORAGE_BUCKET_NAME = getenv('AWS_STORAGE_BUCKET_NAME', '')
+    DEFAULT_FILE_STORAGE = 'time_stretch.s3utils.MediaRootS3BotoStorage'
+    AWS_QUERYSTRING_AUTH = False
+    S3_URL = '//%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+    STATIC_DIRECTORY = '/assets/'
+    MEDIA_DIRECTORY = '/media/'
+    # END STORAGES
 
     # LOGGING CONFIGURATION
     # See: https://docs.djangoproject.com/en/dev/ref/settings/#logging
