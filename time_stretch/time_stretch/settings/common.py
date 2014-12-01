@@ -10,9 +10,9 @@ https://docs.djangoproject.com/en/dev/ref/settings/
 """
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-import os
 import dj_database_url
-from os.path import join, dirname
+from os.path import abspath, basename, dirname, join, normpath
+from sys import path
 from os import getenv
 from configurations import Configuration, values
 
@@ -20,6 +20,22 @@ BASE_DIR = dirname(dirname(__file__))
 
 
 class Common(Configuration):
+
+    ########## PATH CONFIGURATION
+    # Absolute filesystem path to the Django project directory:
+    DJANGO_ROOT = dirname(dirname(abspath(__file__)))
+
+    # Absolute filesystem path to the top-level project folder:
+    SITE_ROOT = dirname(DJANGO_ROOT)
+
+    # Site name:
+    SITE_NAME = basename(DJANGO_ROOT)
+
+    # Add our project to our pythonpath,
+    # this way we don't need to type our project
+    # name in our dotted import paths:
+    path.append(DJANGO_ROOT)
+    ########## END PATH CONFIGURATION
 
     # APP CONFIGURATION
     DJANGO_APPS = (
@@ -177,36 +193,52 @@ class Common(Configuration):
         'django.template.loaders.app_directories.Loader',
     )
 
-    # See: http://django-crispy-forms.readthedocs.org/en/latest/install.html#template-packs
-    CRISPY_TEMPLATE_PACK = 'bootstrap3'
-    # END TEMPLATE CONFIGURATION
+    ####STORAGES####
+    AWS_ACCESS_KEY_ID = getenv('AWS_ACCESS_KEY_ID', '')
+    AWS_SECRET_ACCESS_KEY = getenv('AWS_SECRET_ACCESS_KEY', '')
+    AWS_STORAGE_BUCKET_NAME = getenv('AWS_STORAGE_BUCKET_NAME', '')
+    DEFAULT_FILE_STORAGE = 'time_stretch.s3utils.MediaRootS3BotoStorage'
+    AWS_QUERYSTRING_AUTH = False
+    S3_URL = '//%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+    STATIC_DIRECTORY = '/assets/'
+    MEDIA_DIRECTORY = '/media/'
+    # END STORAGES
 
-    # STATIC FILE CONFIGURATION
+
+    ########## MEDIA CONFIGURATION
+    # See: https://docs.djangoproject.com/en/dev/ref/settings/#media-root
+    MEDIA_ROOT = normpath(join(SITE_ROOT, 'media'))
+
+    # See: https://docs.djangoproject.com/en/dev/ref/settings/#media-url
+    MEDIA_URL = S3_URL + MEDIA_DIRECTORY
+    ########## END MEDIA CONFIGURATION
+
+
+    ########## STATIC FILE CONFIGURATION
     # See: https://docs.djangoproject.com/en/dev/ref/settings/#static-root
-    STATIC_ROOT = join(os.path.dirname(BASE_DIR), 'staticfiles')
+    STATIC_ROOT = normpath(join(SITE_ROOT, 'assets'))
 
     # See: https://docs.djangoproject.com/en/dev/ref/settings/#static-url
-    STATIC_URL = '/static/'
+    STATIC_URL = S3_URL + STATIC_DIRECTORY
 
-    # See: https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#std:setting-STATICFILES_DIRS
+    # See: https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/
+    #      #std:setting-STATICFILES_DIRS
+    # Note: There is a presumption that the first entry here is 'static' so that
+    # trash dirs work.
     STATICFILES_DIRS = (
-        join(BASE_DIR, 'static'),
+        normpath(join(SITE_ROOT, 'static')),
     )
 
-    # See: https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#staticfiles-finders
+    # See: https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/
+    #      #staticfiles-finders
     STATICFILES_FINDERS = (
         'django.contrib.staticfiles.finders.FileSystemFinder',
         'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     )
-    # END STATIC FILE CONFIGURATION
 
-    # MEDIA CONFIGURATION
-    # See: https://docs.djangoproject.com/en/dev/ref/settings/#media-root
-    MEDIA_ROOT = join(BASE_DIR, 'media')
+    STATICFILES_STORAGE = 'datadrivendota.s3utils.S3PipelineStorage'
 
-    # See: https://docs.djangoproject.com/en/dev/ref/settings/#media-url
-    MEDIA_URL = '/media/'
-    # END MEDIA CONFIGURATION
+    ########## END STATIC FILE CONFIGURATION
 
     # URL Configuration
     ROOT_URLCONF = 'urls'
@@ -238,16 +270,6 @@ class Common(Configuration):
     AUTOSLUG_SLUGIFY_FUNCTION = "slugify.slugify"
     # END SLUGLIFIER
 
-    ####STORAGES####
-    AWS_ACCESS_KEY_ID = getenv('AWS_ACCESS_KEY_ID', '')
-    AWS_SECRET_ACCESS_KEY = getenv('AWS_SECRET_ACCESS_KEY', '')
-    AWS_STORAGE_BUCKET_NAME = getenv('AWS_STORAGE_BUCKET_NAME', '')
-    DEFAULT_FILE_STORAGE = 'time_stretch.s3utils.MediaRootS3BotoStorage'
-    AWS_QUERYSTRING_AUTH = False
-    S3_URL = '//%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
-    STATIC_DIRECTORY = '/assets/'
-    MEDIA_DIRECTORY = '/media/'
-    # END STORAGES
 
     # LOGGING CONFIGURATION
     # See: https://docs.djangoproject.com/en/dev/ref/settings/#logging
@@ -282,3 +304,51 @@ class Common(Configuration):
     # END LOGGING CONFIGURATION
 
     # Your common stuff: Below this line define 3rd party library settings
+
+    ########## PIPELINE CONFIGURATION
+    PIPELINE_CSS = {
+        'all': {
+            'source_filenames': (
+                'css/custom_bootstrap_compilation.less',
+                'jquery-ui-bootstrap/jquery-ui-1.10.0.custom.css',
+                'css/project.less'
+            ),
+            'output_filename': 'css/all.css',
+            'extra_context': {
+                'media': 'screen,projection',
+            },
+        },
+    }
+
+    PIPELINE_JS = {
+        'all': {
+            'source_filenames': (
+                'bootstrap/js/transition.js',
+                'bootstrap/js/modal.js',
+                'bootstrap/js/dropdown.js',
+                'bootstrap/js/scrollspy.js',
+                'bootstrap/js/tab.js',
+                'bootstrap/js/tooltip.js',
+                'bootstrap/js/popover.js',
+                'bootstrap/js/alert.js',
+                'bootstrap/js/button.js',
+                'bootstrap/js/collapse.js',
+                'bootstrap/js/carousel.js',
+                'bootstrap/js/affix.js',
+                'js/project.js',
+            ),
+            'output_filename': 'js/all.js',
+        },
+        'jquery': {
+            'source_filenames': (
+                'js/jquery-1.10.2.js',
+            ),
+            'output_filename': 'js/jq.js',
+        }
+
+    }
+
+    PIPELINE_COMPILERS = (
+        'pipeline.compilers.less.LessCompiler',
+    )
+    ########## END PIPELINE CONFIGURATION
