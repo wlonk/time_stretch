@@ -1,0 +1,3 @@
+[submodule "time_stretch/static/bootstrap"]
+	path = time_stretch/static/bootstrap
+	url = https://github.com/twbs/bootstrap
