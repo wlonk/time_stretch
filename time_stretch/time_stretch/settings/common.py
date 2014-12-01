@@ -236,7 +236,7 @@ class Common(Configuration):
         'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     )
 
-    STATICFILES_STORAGE = 'datadrivendota.s3utils.S3PipelineStorage'
+    STATICFILES_STORAGE = 'time_stretch.s3utils.S3PipelineStorage'
 
     ########## END STATIC FILE CONFIGURATION
 
@@ -310,7 +310,7 @@ class Common(Configuration):
         'all': {
             'source_filenames': (
                 'css/custom_bootstrap_compilation.less',
-                'jquery-ui-bootstrap/jquery-ui-1.10.0.custom.css',
+                'css/override_variables.less',
                 'css/project.less'
             ),
             'output_filename': 'css/all.css',
