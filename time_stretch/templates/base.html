@@ -57,6 +57,11 @@
       {% endblock content %}
 
     </div> <!-- /container -->
+    <script type="text/javascript">
+      $.getJSON('{% static "KTK.json" %}', function(json){
+        console.log(json)
+      })
+    </script>
 
     {% block modal %}{% endblock modal %}
 
