@@ -227,6 +227,7 @@ class Common(Configuration):
     STATICFILES_FINDERS = (
         'django.contrib.staticfiles.finders.FileSystemFinder',
         'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+         'pipeline.finders.PipelineFinder',
     )
 
     STATICFILES_STORAGE = 'time_stretch.s3utils.S3PipelineStorage'
@@ -285,11 +286,11 @@ class Common(Configuration):
     # Your common stuff: Below this line define 3rd party library settings
 
     ########## PIPELINE CONFIGURATION
+                # 'css/override_variables.less',
     PIPELINE_CSS = {
         'all': {
             'source_filenames': (
                 'css/custom_bootstrap_compilation.less',
-                'css/override_variables.less',
                 'css/project.less'
             ),
             'output_filename': 'css/all.css',
