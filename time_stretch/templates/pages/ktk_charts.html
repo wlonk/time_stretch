@@ -307,7 +307,7 @@
                     categories.push(i);
                 }
 
-                var xScale = d3.scale.linear().domain(categories)
+                var xScale = d3.scale.ordinal().domain(categories)
                     .rangeRoundBands(
                         [0, width], 0.1
                     )
