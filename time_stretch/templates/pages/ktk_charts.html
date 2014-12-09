@@ -1,0 +1,464 @@
+{% extends "base.html" %}
+{% load staticfiles i18n %}
+
+
+{% block content %}
+    <div class='col-md-8' id='barchart'></div>
+    <div class='col-md-4' id='toggles'>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Category</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr id='White' class='color-picker'><td>White</td></tr>
+                <tr id='Blue' class='color-picker'><td>Blue</td></tr>
+                <tr id='Black' class='color-picker'><td>Black</td></tr>
+                <tr id='Red' class='color-picker'><td>Red</td></tr>
+                <tr id='Green' class='color-picker'><td>Green</td></tr>
+                <tr id='Abzan' class='color-picker'><td>Abzan</td></tr>
+                <tr id='Jeskai' class='color-picker'><td>Jeskai</td></tr>
+                <tr id='Sultai' class='color-picker'><td>Sultai</td></tr>
+                <tr id='Temur' class='color-picker'><td>Temur</td></tr>
+                <tr id='Mardu' class='color-picker'><td>Mardu</td></tr>
+                <tr id='Bant' class='color-picker'><td>Bant</td></tr>
+                <tr id='Esper' class='color-picker'><td>Esper</td></tr>
+                <tr id='Grixis' class='color-picker'><td>Grixis</td></tr>
+                <tr id='Naya' class='color-picker'><td>Naya</td></tr>
+                <tr id='Jund' class='color-picker'><td>Jund</td></tr>
+                <tr id='Boros' class='color-picker'><td>Boros</td></tr>
+                <tr id='Selesnya' class='color-picker'><td>Selesnya</td></tr>
+                <tr id='Dimir' class='color-picker'><td>Dimir</td></tr>
+                <tr id='Golgari' class='color-picker'><td>Golgari</td></tr>
+                <tr id='Orzhov' class='color-picker'><td>Orzhov</td></tr>
+                <tr id='Gruul' class='color-picker'><td>Gruul</td></tr>
+                <tr id='Izzet' class='color-picker'><td>Izzet</td></tr>
+                <tr id='Simic' class='color-picker'><td>Simic</td></tr>
+                <tr id='Azorius' class='color-picker'><td>Azorius</td></tr>
+                <tr id='Rakdos' class='color-picker'><td>Rakdos</td></tr>
+            </tbody>
+        </table>
+    </div>
+    <div class='col-md-8' id='table'>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Cost</th>
+                    <th>Rarity</th>
+                    <th>Type</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <div class='col-md-4' id='card'><img></div>
+{% endblock content %}
+
+{% block extra_js %}
+    <script type="text/javascript">
+        var card_set;
+        $(function(){
+            array_equals = function (comparison, array) {
+                // if the other array is a falsy value, return
+                if (!array)
+                    return false;
+
+                // compare lengths - can save a lot of time
+                if (comparison.length != array.length)
+                    return false;
+
+                for (var i = 0, l=comparison.length; i < l; i++) {
+                    // Check if we have nested arrays
+                    if (comparison[i] instanceof Array && array[i] instanceof Array) {
+                        // recurse into the nested arrays
+                        if (!comparison[i].equals(array[i]))
+                            return false;
+                    }
+                    else if (comparison[i] != array[i]) {
+                        // Warning - two different object instances will never be equal: {x:20} != {x:20}
+                        return false;
+                    }
+                }
+                return true;
+            }
+
+            // Setup
+            $.getJSON('{% static "js/KTK.json" %}', function(data){
+                card_set = data
+
+                var color_sample = d3.nest()
+                .key(function(d){return cardColor(d)})
+                .entries(card_set.cards);
+                colors = []
+                color_sample.forEach(function(d){
+                    colors.push(d.key)
+                })
+                $('.color-picker').each(function(){
+                    if(colors.indexOf($(this).attr('id')) == -1){
+                        $(this).removeClass('active-color')
+                        $(this).hide('slow')
+                    }else{
+                        $(this).show('slow')
+                    }
+                })
+
+            })
+
+            var total_width = $('#barchart').width()
+            var total_height = 500;
+            var duration = 1000;
+            var margin = {top: 15, right: 15, bottom: 25, left: 35},
+                width = total_width - margin.right - margin.left,
+                height = total_height - margin.top - margin.bottom;
+
+            var svg = d3.select('#barchart').append('svg:svg')
+            .attr('width', total_width)
+            .attr('height', total_height)
+            .append('g')
+            .attr('transform', 'translate('+margin.left+','+margin.top+')')
+
+            var xScale = d3.scale.ordinal().domain(
+                    ['']
+                ).rangeRoundBands(
+                    [0, width], 0.1
+                )
+
+            var xAxis = svg.append('g').attr('class', 'x-axis')
+                .attr('transform', 'translate(0,'+height+')')
+                .call(
+                    d3.svg.axis().scale(xScale).orient('bottom')
+                )
+
+            xAxis.append('text')
+                .attr('class', 'x-axis-label')
+                .attr('y', '0')
+                .attr('x', width)
+                .style('text-anchor', 'end')
+                .text('Converted Mana Cost')
+
+            var yScale = d3.scale.linear().domain([0, 10]).range([height, 0])
+
+            var yAxis = svg.append('g').attr('class', 'y-axis')
+                .attr('transform', 'translate(0,0)')
+                .call(
+                    d3.svg.axis().scale(yScale).orient('left').tickFormat(d3.format("d"))
+                )
+
+            yAxis.append('text')
+                .attr("class", "y-axis-label")
+                .attr("transform", "rotate(-90)")
+                .attr("y", 6)
+                .attr("dy", ".71em")
+                .style("text-anchor", "end")
+                .text('Count');
+
+            // Utility
+            function updateImage(card){
+                url  = "http://mtgimage.com/set/KTK/"+card.imageName+".jpg";
+                $('#card img').attr("src", url.replace(/ /g,"_"));
+            }
+            function cardColor(card){
+                if($.inArray('colors',Object.keys(card))==-1){
+                    return 'Colorless'
+                }else{
+                    colors = card.colors.sort()
+                }
+                if(array_equals(colors,['White'])){
+                    return 'White'
+                }
+                else if(array_equals(colors,['Blue'])){
+                    return 'Blue'}
+                else if(array_equals(colors,['Black'])){
+                    return 'Black'}
+                else if(array_equals(colors,['Red'])){
+                    return 'Red'}
+                else if(array_equals(colors,['Green'])){
+                    return 'Green'}
+                else if(array_equals(colors,['Black','Blue'])){
+                    return 'Dimir'}
+                else if(array_equals(colors,['Black','Green'])){
+                return 'Golgari'}
+                else if(array_equals(colors,['Black','Red'])){
+                return 'Rakdos'}
+                else if(array_equals(colors,['Black','White'])){
+                return 'Orzhov'}
+                else if(array_equals(colors,['Blue','Green'])){
+                return 'Simic'}
+                else if(array_equals(colors,['Blue','Red'])){
+                return 'Izzet'}
+                else if(array_equals(colors,['Blue','White'])){
+                return 'Azorius'}
+                else if(array_equals(colors,['Green','Red'])){
+                return 'Gruul'}
+                else if(array_equals(colors,['Green','White'])){
+                return 'Selesnya'}
+                else if(array_equals(colors,['Red','White'])){
+                return 'Boros'}
+                else if(array_equals(colors,['Black','Blue','White'])){
+                return 'Esper'}
+                else if(array_equals(colors,['Black','Blue','Red'])){
+                return 'Grixis'}
+                else if(array_equals(colors,['Blue','Green','White'])){
+                return 'Bant'}
+                else if(array_equals(colors,['Green','Red','White'])){
+                return 'Naya'}
+                else if(array_equals(colors,['Black','Green','Red'])){
+                return 'Jund'}
+                else if(array_equals(colors,['Black','Green','White'])){
+                return 'Abzan'}
+                else if(array_equals(colors,['Blue','Red','White'])){
+                return 'Jeskai'}
+                else if(array_equals(colors,['Blue','Green','Red'])){
+                return 'Temur'}
+                else if(array_equals(colors,['Black','Blue','Green'])){
+                return 'Sultai'}
+                else if(array_equals(colors,['Black','Red','White'])){
+                return 'Mardu'}
+                else{return 'other'}
+            }
+            function getColors(){
+                var color_lst =[]
+                $.each($('.color-picker.active-color'), function(k, v){
+                    color_lst.push(v.id);
+                })
+                return color_lst
+            }
+            function filterCards(){
+                var color_lst = getColors()
+                var cards = card_set.cards.filter(function(card){
+                    return $.inArray(cardColor(card), color_lst)!==-1
+                })
+                return cards
+            }
+            function rowCard(card){
+                return '<td>'+card.name+'</td><td>'+card.cmc+'</td><td>'+card.rarity+'</td><td>'+card.type+'</td>'
+            }
+
+            function tableUpdate(cmc, color){
+                tablecards = card_set.cards.filter(function(card){
+                    return card.cmc == cmc && cardColor(card) == color
+                })
+                // console.log('Removing')
+                // $('#table tbody tr').remove()
+                // console.log('Removed')
+                // tablecards.forEach(function(card){
+                //     $('#table tbody').append(rowCard(card))
+                // })
+                rows = d3.select('#table tbody').selectAll('tr').data(tablecards, function(d){
+                    return d.multiverseid
+                });
+                rows.exit().remove();
+                rows.enter().append('tr').html(function(d){
+                    return rowCard(d)
+                }).on('click', function(d){
+                    updateImage(d)
+                })
+            }
+            function dataFromCards(cards){
+                var costs = {};
+                $.each(cards, function(k, card){
+                    if(!(card.cmc in costs)){
+                        costs[card.cmc]=1
+                    }
+                })
+                costs = Object.keys(costs)
+
+                var color_lst = getColors()
+                data = d3.nest()
+                .key(function(d){return d.cmc})
+                .key(function(d){return cardColor(d)})
+                .rollup(function(leaves){return leaves.length})
+                .entries(cards);
+
+                return data
+            }
+
+            // Behavior
+            $('.color-picker').on('click', function(){
+                $(this).toggleClass('active-color');
+                $(document).trigger('update')
+            })
+
+            $(document).on('update', function(){
+                cards = filterCards()
+                data = dataFromCards(cards)
+                data.forEach(function(d){
+                    d.total = 0
+                    d.values.forEach(function(x){
+                        x.cmc = d.key
+                        x.offset = d.total
+                        d.total += x.values
+                    })
+                })
+
+                $('.x-axis').remove()
+                $('.x-axis-label').remove()
+                $('.y-axis').remove()
+                $('.y-axis-label').remove()
+                $('g.cmc-groups').remove()
+
+                var categories = []
+                max_val = d3.max(data, function(d){return d.key})
+                for (var i = 0; i <= max_val; i++) {
+                    categories.push(i);
+                }
+
+                var xScale = d3.scale.linear().domain(categories)
+                    .rangeRoundBands(
+                        [0, width], 0.1
+                    )
+
+                var xAxis = svg.append('g').attr('class', 'x-axis')
+                    .attr('transform', 'translate(0,'+height+')')
+                    .call(
+                        d3.svg.axis().scale(xScale).orient('bottom')
+                    )
+
+                xAxis.append('text')
+                    .attr('class', 'x-axis-label')
+                    .attr('y', '0')
+                    .attr('x', width)
+                    .style('text-anchor', 'end')
+                    .text('Converted Mana Cost')
+
+                var yScale = d3.scale.linear().domain(
+                    [0, d3.max(data, function(d){return d.total})]
+                    ).range([height, 0])
+
+                var yAxis = svg.append('g').attr('class', 'y-axis')
+                    .attr('transform', 'translate(0,0)')
+                    .call(
+                        d3.svg.axis().scale(yScale).orient('left').tickFormat(d3.format("d"))
+                    )
+
+                yAxis.append('text')
+                    .attr("class", "y-axis-label")
+                    .attr("transform", "rotate(-90)")
+                    .attr("y", 6)
+                    .attr("dy", ".71em")
+                    .style("text-anchor", "end")
+                    .text('Count');
+
+
+
+                var cmc_rects = svg.selectAll('.cmc-groups').data(data);
+                // cmc_rects.exit().remove();
+
+                cmc_rects.enter().append('g')
+                    .attr('class', 'cmc-groups')
+                    .attr('transform', function(d){
+                        return 'translate('+xScale(d.key)+',0)'
+                    })
+
+                var card_rects = cmc_rects.selectAll('.data-rect')
+                    .data(function(d){return d.values});
+
+                card_rects.exit().transition().duration(1000).remove();
+
+                card_rects.enter().append('rect')
+                .attr('width', xScale.rangeBand())
+                .attr('class', function(d){return 'data-rect '+d.key})
+                .attr('height', function(d){
+                    return height-yScale(d.values)
+                })
+                .attr('y', function(d){
+                    return yScale(d.values+d.offset)})
+                .on('click', function(d){
+                    tableUpdate(d.cmc, d.key)
+                });
+            })
+
+        })
+
+    </script>
+{% endblock extra_js %}
+
+{% block extra_css %}
+    <style type="text/css">
+        tr.active-color{
+            background-color: #BF9DFF;
+        }
+        rect.data-rect{
+            stroke:#000000;
+        }
+        rect.data-rect.White{
+            fill:#FFFFFF;
+        }
+        rect.data-rect.Blue{
+            fill:#11209A;
+        }
+        rect.data-rect.Black{
+            fill:#2C2C2C;
+        }
+        rect.data-rect.Red{
+            fill:#9B1A1A;
+        }
+        rect.data-rect.Green{
+            fill:#005B12;
+        }
+        rect.data-rect.Abzan{
+            fill:#4EAD58;
+        }
+        rect.data-rect.Jeskai{
+            fill:#504EBD;
+        }
+        rect.data-rect.Sultai{
+            fill:#888888;
+        }
+        rect.data-rect.Temur{
+            fill:#4AA856;
+        }
+        rect.data-rect.Mardu{
+            fill:#B16363;
+        }
+        rect.data-rect.Bant{
+            fill:#004C09;
+        }
+        rect.data-rect.Esper{
+            fill:#004C09;
+        }
+        rect.data-rect.Grixis{
+            fill:#004C09;
+        }
+        rect.data-rect.Naya{
+            fill:#004C09;
+        }
+        rect.data-rect.Jund{
+            fill:#004C09;
+        }
+        rect.data-rect.Boros{
+            fill:#A39B00;
+        }
+        rect.data-rect.Selesnya{
+            fill:#A39B00;
+        }
+        rect.data-rect.Dimir{
+            fill:#A39B00;
+        }
+        rect.data-rect.Golgari{
+            fill:#A39B00;
+        }
+        rect.data-rect.Orzhov{
+            fill:#A39B00;
+        }
+        rect.data-rect.Gruul{
+            fill:#A39B00;
+        }
+        rect.data-rect.Izzet{
+            fill:#A39B00;
+        }
+        rect.data-rect.Simic{
+            fill:#A39B00;
+        }
+        rect.data-rect.Azorius{
+            fill:#A39B00;
+        }
+        rect.data-rect.Rakdos{
+            fill:#A39B00;
+        }
+    </style>
+{% endblock extra_css %}
