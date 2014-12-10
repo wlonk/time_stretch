@@ -190,24 +190,24 @@ TEMPLATE_LOADERS = (
 # DEFAULT_FILE_STORAGE = 'time_stretch.s3utils.MediaRootS3BotoStorage'
 # AWS_PRELOAD_METADATA = False
 # S3_URL = '//%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
-STATIC_DIRECTORY = '/assets/'
+STATIC_DIRECTORY = '/static/'
 MEDIA_DIRECTORY = '/media/'
 # END STORAGES
 
 
 ########## MEDIA CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#media-root
-MEDIA_ROOT = ''
-# MEDIA_ROOT = normpath(join(SITE_ROOT, 'media'))
+MEDIA_ROOT = MEDIA_DIRECTORY
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#media-url
-# MEDIA_URL = S3_URL + MEDIA_DIRECTORY
+MEDIA_URL = MEDIA_DIRECTORY
 ########## END MEDIA CONFIGURATION
 
 
 ########## STATIC FILE CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#static-root
-STATIC_ROOT = normpath(join(SITE_ROOT, 'assets'))
+# STATIC_ROOT = normpath(join(SITE_ROOT, 'assets'))
+STATIC_ROOT = STATIC_DIRECTORY
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#static-url
 STATIC_URL = STATIC_DIRECTORY
@@ -216,6 +216,7 @@ STATIC_URL = STATIC_DIRECTORY
 #      #std:setting-STATICFILES_DIRS
 # Note: There is a presumption that the first entry here is 'static' so that
 # trash dirs work.
+
 STATICFILES_DIRS = (
     normpath(join(SITE_ROOT, 'static')),
 )
