@@ -33,3 +33,5 @@ node_modules/
 
 #Sublime 
 time_stretch.sublime-*
+
+time_stretch/assets
