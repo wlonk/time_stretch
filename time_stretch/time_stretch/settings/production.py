@@ -38,9 +38,9 @@ INSTALLED_APPS += ("gunicorn", )
 
 # STORAGE CONFIGURATION
 # See: http://django-storages.readthedocs.org/en/latest/index.html
-INSTALLED_APPS += (
-    'storages',
-)
+# INSTALLED_APPS += (
+#     'storages',
+# )
 
 # See: http://django-storages.readthedocs.org/en/latest/backends/amazon-S3.html#settings
 STATICFILES_STORAGE = DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
