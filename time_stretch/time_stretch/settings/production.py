@@ -67,16 +67,18 @@ AWS_HEADERS = {
 STATIC_URL = 'https://s3.amazonaws.com/%s/' % AWS_STORAGE_BUCKET_NAME
 # END STORAGE CONFIGURATION
 
-# EMAIL
-# DEFAULT_FROM_EMAIL = 'time_stretch <noreply@example.com>'
-# EMAIL_HOST = 'smtp.sendgrid.com')
-# EMAIL_HOST_PASSWORD = environ_prefix="", environ_name="SENDGRID_PASSWORD"
-# EMAIL_HOST_USER = environ_prefix="", environ_name="SENDGRID_USERNAME"
-# EMAIL_PORT = 587, environ_prefix="", environ_name="EMAIL_PORT"
-# EMAIL_SUBJECT_PREFIX = '[time_stretch] ', environ_name="EMAIL_SUBJECT_PREFIX"
-# EMAIL_USE_TLS = True
-# SERVER_EMAIL = EMAIL_HOST_USER
-# END EMAIL
+# Name and email addresses of recipients
+ADMINS = (
+    ("Ben Warren", "ben@time_stretch.com"),
+)
+
+EMAIL_PORT = getenv('MAILGUN_SMTP_PORT')
+EMAIL_TIMEOUT = 10
+EMAIL_HOST = getenv('MAILGUN_SMTP_SERVER')
+EMAIL_HOST_USER = getenv('MAILGUN_SMTP_LOGIN')
+EMAIL_HOST_PASSWORD = getenv('MAILGUN_SMTP_PASSWORD')
+
+INVOICE_FROM_EMAIL = "ben@time_stretch.com"
 
 # TEMPLATE CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#template-dirs

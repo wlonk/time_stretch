@@ -248,7 +248,7 @@ AUTOSLUG_SLUGIFY_FUNCTION = "slugify.slugify"
 # END SLUGLIFIER
 
 
-# LOGGING CONFIGURATION
+########## LOGGING CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#logging
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
@@ -278,7 +278,7 @@ LOGGING = {
         },
     }
 }
-# END LOGGING CONFIGURATION
+########## END LOGGING CONFIGURATION
 
 # Your common stuff: Below this line define 3rd party library settings
 
