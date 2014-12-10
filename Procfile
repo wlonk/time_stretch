@@ -1,1 +1,1 @@
-web: gunicorn --pythonpath="$PWD/time_stretch" wsgi:application
+web: cd time_stretch && gunicorn wsgi:application --log-file -

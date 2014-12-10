@@ -6,45 +6,39 @@ Local Configurations
 - Uses console backend for emails
 - Use Django Debug Toolbar
 '''
-from configurations import values
-from .common import Common
+from .common import *
 
 
-class Local(Common):
+# DEBUG
+DEBUG = True
+TEMPLATE_DEBUG = DEBUG
+# END DEBUG
 
-    # DEBUG
-    DEBUG = values.BooleanValue(True)
-    TEMPLATE_DEBUG = DEBUG
-    # END DEBUG
 
-    # INSTALLED_APPS
-    INSTALLED_APPS = Common.INSTALLED_APPS
-    # END INSTALLED_APPS
+# Mail settings
+EMAIL_HOST = "localhost"
+EMAIL_PORT = 1025
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# End mail settings
 
-    # Mail settings
-    EMAIL_HOST = "localhost"
-    EMAIL_PORT = 1025
-    EMAIL_BACKEND = values.Value('django.core.mail.backends.console.EmailBackend')
-    # End mail settings
+# django-debug-toolbar
+MIDDLEWARE_CLASSES += ('debug_toolbar.middleware.DebugToolbarMiddleware',)
+INSTALLED_APPS += ('debug_toolbar',)
 
-    # django-debug-toolbar
-    MIDDLEWARE_CLASSES = Common.MIDDLEWARE_CLASSES + ('debug_toolbar.middleware.DebugToolbarMiddleware',)
-    INSTALLED_APPS += ('debug_toolbar',)
+INTERNAL_IPS = ('127.0.0.1',)
 
-    INTERNAL_IPS = ('127.0.0.1',)
+DEBUG_TOOLBAR_CONFIG = {
+    'DISABLE_PANELS': [
+        'debug_toolbar.panels.redirects.RedirectsPanel',
+    ],
+    'SHOW_TEMPLATE_CONTEXT': True,
+}
+# end django-debug-toolbar
 
-    DEBUG_TOOLBAR_CONFIG = {
-        'DISABLE_PANELS': [
-            'debug_toolbar.panels.redirects.RedirectsPanel',
-        ],
-        'SHOW_TEMPLATE_CONTEXT': True,
-    }
-    # end django-debug-toolbar
-
-    # Your local stuff: Below this line define 3rd party libary settings
-    ####### STATIC CONFIGURATION
-    STATIC_URL = '/assets/'
-    MEDIA_URL = '/media/'
-    ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
-    STATICFILES_STORAGE = 'pipeline.storage.PipelineStorage'
-    DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
+# Your local stuff: Below this line define 3rd party libary settings
+####### STATIC CONFIGURATION
+STATIC_URL = '/assets/'
+MEDIA_URL = '/media/'
+ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
+STATICFILES_STORAGE = 'pipeline.storage.PipelineStorage'
+DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
