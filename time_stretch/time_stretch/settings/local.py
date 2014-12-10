@@ -1,11 +1,4 @@
 # -*- coding: utf-8 -*-
-'''
-Local Configurations
-
-- Runs in Debug mode
-- Uses console backend for emails
-- Use Django Debug Toolbar
-'''
 from .common import *
 
 
@@ -40,5 +33,5 @@ DEBUG_TOOLBAR_CONFIG = {
 STATIC_URL = '/assets/'
 MEDIA_URL = '/media/'
 ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
-STATICFILES_STORAGE = 'pipeline.storage.PipelineStorage'
+# STATICFILES_STORAGE = 'pipeline.storage.PipelineStorage'
 DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
