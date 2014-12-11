@@ -1,10 +1,11 @@
 from storages.backends.s3boto import S3BotoStorage
+# from pipeline.storage import GZIPMixin
 
 StaticRootS3BotoStorage = lambda: S3BotoStorage(location='static')
 MediaRootS3BotoStorage = lambda: S3BotoStorage(location='media')
 
-from django.contrib.staticfiles.storage import CachedFilesMixin, StaticFilesStorage
-from pipeline.storage import PipelineMixin, PipelineStorage, PipelineCachedStorage
+from django.contrib.staticfiles.storage import CachedFilesMixin
+from pipeline.storage import PipelineMixin
 
 import urllib
 import urlparse
@@ -24,15 +25,13 @@ class PatchedCachedFilesMixin(CachedFilesMixin):
         qs = urllib.quote_plus(qs, ':&=')
         return urlparse.urlunsplit((scheme, netloc, path, qs, anchor))
 
+    def path(self, name):
+        return self._normalize_name(name)
+
 
 class S3PipelineStorage(
     PipelineMixin, PatchedCachedFilesMixin, S3BotoStorage
 ):
-    pass
 
-
-from whitenoise.django import GzipManifestStaticFilesStorage
-
-
-class WhitePipelineStorage(PipelineCachedStorage):
-    pass
+    def path(self, name):
+        return self._normalize_name(name)

@@ -186,39 +186,40 @@ TEMPLATE_LOADERS = (
 )
 
 ####STORAGES####
-# AWS_ACCESS_KEY_ID = getenv('AWS_ACCESS_KEY_ID', '')
-# AWS_SECRET_ACCESS_KEY = getenv('AWS_SECRET_ACCESS_KEY', '')
-# AWS_STORAGE_BUCKET_NAME = getenv('AWS_STORAGE_BUCKET_NAME', '')
-# DEFAULT_FILE_STORAGE = 'time_stretch.s3utils.MediaRootS3BotoStorage'
-# AWS_PRELOAD_METADATA = False
-# S3_URL = '//%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
-STATIC_DIRECTORY = '/static/'
+AWS_ACCESS_KEY_ID = getenv('AWS_ACCESS_KEY_ID', '')
+AWS_SECRET_ACCESS_KEY = getenv('AWS_SECRET_ACCESS_KEY', '')
+AWS_STORAGE_BUCKET_NAME = getenv('AWS_STORAGE_BUCKET_NAME', '')
+DEFAULT_FILE_STORAGE = 'time_stretch.s3utils.MediaRootS3BotoStorage'
+AWS_QUERYSTRING_AUTH = False
+S3_URL = '//%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+STATIC_DIRECTORY = '/assets/'
 MEDIA_DIRECTORY = '/media/'
+AWS_S3_SECURE_URLS = True
+
+STATICFILES_STORAGE = 'time_stretch.s3utils.S3PipelineStorage'
 # END STORAGES
 
 
 ########## MEDIA CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#media-root
-MEDIA_ROOT = MEDIA_DIRECTORY
+MEDIA_ROOT = normpath(join(SITE_ROOT, 'media'))
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#media-url
-MEDIA_URL = MEDIA_DIRECTORY
+MEDIA_URL = S3_URL + MEDIA_DIRECTORY
 ########## END MEDIA CONFIGURATION
 
 
 ########## STATIC FILE CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#static-root
 STATIC_ROOT = normpath(join(SITE_ROOT, 'assets'))
-# STATIC_ROOT = normpath(join(SITE_ROOT, 'static'))
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#static-url
-STATIC_URL = STATIC_DIRECTORY
+STATIC_URL = S3_URL + STATIC_DIRECTORY
 
 # See: https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/
 #      #std:setting-STATICFILES_DIRS
 # Note: There is a presumption that the first entry here is 'static' so that
 # trash dirs work.
-
 STATICFILES_DIRS = (
     normpath(join(SITE_ROOT, 'static')),
 )
@@ -230,9 +231,19 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     'pipeline.finders.PipelineFinder',
 )
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
-# STATICFILES_STORAGE = 'pipeline.storage.PipelineCachedStorage'
+
 ########## END STATIC FILE CONFIGURATION
+
+ALLOWED_HOSTS = ['*']
+
+########## BEGIN CORS CONFIGURATION
+CORS_ORIGIN_WHITELIST = (
+    'api.intercom.io',
+    'datadrivendota.s3.amazonaws.com',
+    'fonts.googleapis.com',
+)
+########## END CORS CONFIGURATION
+
 
 # URL Configuration
 ROOT_URLCONF = 'urls'
