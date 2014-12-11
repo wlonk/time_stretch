@@ -23,7 +23,6 @@ import os
 # os.environ.setdefault("DJANGO_CONFIGURATION", "Production")
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "time_stretch.settings.production")
 
-
 from django.core.wsgi import get_wsgi_application
 from whitenoise.django import DjangoWhiteNoise
 

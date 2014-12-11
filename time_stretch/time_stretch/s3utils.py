@@ -3,8 +3,8 @@ from storages.backends.s3boto import S3BotoStorage
 StaticRootS3BotoStorage = lambda: S3BotoStorage(location='static')
 MediaRootS3BotoStorage = lambda: S3BotoStorage(location='media')
 
-from django.contrib.staticfiles.storage import CachedFilesMixin
-from pipeline.storage import PipelineMixin
+from django.contrib.staticfiles.storage import CachedFilesMixin, StaticFilesStorage
+from pipeline.storage import PipelineMixin, PipelineStorage, PipelineCachedStorage
 
 import urllib
 import urlparse
@@ -28,4 +28,11 @@ class PatchedCachedFilesMixin(CachedFilesMixin):
 class S3PipelineStorage(
     PipelineMixin, PatchedCachedFilesMixin, S3BotoStorage
 ):
+    pass
+
+
+from whitenoise.django import GzipManifestStaticFilesStorage
+
+
+class WhitePipelineStorage(PipelineCachedStorage):
     pass

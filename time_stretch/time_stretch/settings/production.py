@@ -80,5 +80,3 @@ CACHES = {
 ########## END CACHE CONFIGURATION
 
 # Your production stuff: Below this line define 3rd party libary settings
-
-

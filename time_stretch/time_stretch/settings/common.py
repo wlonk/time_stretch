@@ -91,6 +91,8 @@ DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 # END DEBUG
 
+TEST_RUNNER = 'django.test.runner.DiscoverRunner'
+
 # SECRET CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
 # Note: This key only used for development and testing.
@@ -206,8 +208,8 @@ MEDIA_URL = MEDIA_DIRECTORY
 
 ########## STATIC FILE CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#static-root
-# STATIC_ROOT = normpath(join(SITE_ROOT, 'assets'))
-STATIC_ROOT = STATIC_DIRECTORY
+STATIC_ROOT = normpath(join(SITE_ROOT, 'assets'))
+# STATIC_ROOT = normpath(join(SITE_ROOT, 'static'))
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#static-url
 STATIC_URL = STATIC_DIRECTORY
@@ -229,7 +231,7 @@ STATICFILES_FINDERS = (
     'pipeline.finders.PipelineFinder',
 )
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
-# STATICFILES_STORAGE = 'time_stretch.s3utils.S3PipelineStorage'
+# STATICFILES_STORAGE = 'pipeline.storage.PipelineCachedStorage'
 ########## END STATIC FILE CONFIGURATION
 
 # URL Configuration
