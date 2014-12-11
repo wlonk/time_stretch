@@ -196,7 +196,7 @@ STATIC_DIRECTORY = '/assets/'
 MEDIA_DIRECTORY = '/media/'
 AWS_S3_SECURE_URLS = True
 
-STATICFILES_STORAGE = 'time_stretch.s3utils.S3PipelineStorage'
+STATICFILES_STORAGE = 's3utils.S3PipelineStorage'
 # END STORAGES
 
 

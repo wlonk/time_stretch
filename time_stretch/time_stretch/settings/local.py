@@ -30,8 +30,8 @@ DEBUG_TOOLBAR_CONFIG = {
 
 # Your local stuff: Below this line define 3rd party libary settings
 ####### STATIC CONFIGURATION
-# STATIC_URL = '/assets/'
-# MEDIA_URL = '/media/'
+STATIC_URL = '/assets/'
+MEDIA_URL = '/media/'
 ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
-# STATICFILES_STORAGE = 'pipeline.storage.PipelineStorage'
+STATICFILES_STORAGE = 'pipeline.storage.PipelineStorage'
 DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
