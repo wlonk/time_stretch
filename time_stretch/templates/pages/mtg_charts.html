@@ -152,7 +152,7 @@
 
             var total_width = $('#barchart').width()
             var total_height = 300;
-            var duration = 1000;
+            var duration = 100;
             var margin = {top: 15, right: 15, bottom: 25, left: 35},
                 width = total_width - margin.right - margin.left,
                 height = total_height - margin.top - margin.bottom;
@@ -299,6 +299,9 @@
                 }).on('click', function(d){
                     updateImage(d)
                 })
+                if(tablecards.length==1){
+                    updateImage(tablescards[0]);
+                }
             }
             function dataFromCards(cards){
                 var costs = {};
@@ -342,7 +345,8 @@
 
                 xScale.domain([x_min, max_val])
 
-                xAxis.transition().duration(duration).ease('linear').call(
+                var xTransition = xAxis.transition().duration(duration)
+                xTransition.ease('linear').call(
                     d3.svg.axis().scale(xScale).orient('bottom').tickFormat(d3.format("d"))
                 )
 
