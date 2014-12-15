@@ -76,6 +76,8 @@
         var rect_width = .8;  // How much space on the x domain to use
         var x_min = -1;
         var rect_draw_width = x_min+rect_width  // for conversion into scale units
+        var axisUpdateDuration = 300;
+        var barEnterExitDuration = 500;
         $(function(){
             $('.color-picker').hide();
             array_equals = function (comparison, array) {
@@ -152,7 +154,6 @@
 
             var total_width = $('#barchart').width()
             var total_height = 300;
-            var duration = 100;
             var margin = {top: 15, right: 15, bottom: 25, left: 35},
                 width = total_width - margin.right - margin.left,
                 height = total_height - margin.top - margin.bottom;
@@ -345,7 +346,8 @@
 
                 xScale.domain([x_min, max_val])
 
-                var xTransition = xAxis.transition().duration(duration)
+                var xTransition = xAxis.transition()
+                    .duration(axisUpdateDuration)
                 xTransition.ease('linear').call(
                     d3.svg.axis().scale(xScale).orient('bottom').tickFormat(d3.format("d"))
                 )
@@ -356,25 +358,27 @@
                     [0, d3.max(data, function(d){return d.total})]
                     )
 
-                yAxis.transition().duration(duration).ease('linear')
+                yAxis.transition().duration(axisUpdateDuration).ease('linear')
                     .call(
                         d3.svg.axis().scale(yScale).orient('left')
                         .tickFormat(d3.format("d"))
                     );
 
                 var cmc_rects = svg.selectAll('.cmc-groups').data(data);
-                cmc_rects.exit().remove();
 
-                cmc_rects.attr('transform', function(d){
+                cmc_rects.transition().duration(axisUpdateDuration)
+                .attr('transform', function(d){
                     return 'translate('+xScale(parseInt(d.key)-rect_width/2)+',0)'
                 });
-
                 cmc_rects.enter().append('g')
                     .attr('class', 'cmc-groups')
+                    .transition()
+                    .duration(axisUpdateDuration)
                     .attr('transform', function(d){
-                        console.log(d)
                         return 'translate('+xScale(parseInt(d.key)-rect_width/2)+',0)'
                     });
+                cmc_rects.exit().remove();
+
 
                 var card_rects = cmc_rects.selectAll('.data-rect')
                     .data(function(d){return d.values});
@@ -383,22 +387,37 @@
                     tableUpdate(d.cmc, d.key)
                 })
 
-                card_rects.exit().transition().duration(0)
-                .attr('width', 0)
+                card_rects
+                .exit()
+                .transition()
+                .delay(axisUpdateDuration)
+                .attr('width', xScale(rect_draw_width))
+                .duration(barEnterExitDuration)
+                .attr('height', 0)
                 .remove();
 
-                card_rects.enter().append('rect')
+                card_rects
+                .enter()
+                .append('rect')
+                .on('click', function(d){
+                    tableUpdate(d.cmc, d.key)
+                })
                 .attr('width', xScale(rect_draw_width))
+                .attr('height', 0)
+                .transition()
+                .delay(axisUpdateDuration)
+                .duration(barEnterExitDuration)
                 .attr('class', function(d){return 'data-rect '+d.key})
                 .attr('height', function(d){
                     return height-yScale(d.values)
                 }).attr('y', function(d){
                     return yScale(d.values+d.offset)}
-                ).on('click', function(d){
-                    tableUpdate(d.cmc, d.key)
-                });
+                );
 
-                card_rects.transition().duration(duration)
+                card_rects.transition().duration(axisUpdateDuration)
+                .transition()
+                .delay(axisUpdateDuration)
+                .duration(barEnterExitDuration)
                 .attr('width', function(){
                     return xScale(rect_draw_width);
                 })
