@@ -36,6 +36,12 @@ ALLOWED_HOSTS = ["*"]
 
 INSTALLED_APPS += ("gunicorn", )
 
+# STORAGE CONFIGURATION
+# See: http://django-storages.readthedocs.org/en/latest/index.html
+INSTALLED_APPS += (
+    'storages',
+)
+
 # AWS cache settings, don't change unless you know what you're doing:
 AWS_EXPIREY = 60 * 60 * 24 * 7
 AWS_HEADERS = {
@@ -49,7 +55,7 @@ AWS_HEADERS = {
 
 # Name and email addresses of recipients
 ADMINS = (
-    ("Ben Warren", "ben@time_stretch.com"),
+    ("Ben Warren", "bwarren2@gmail.com"),
 )
 
 EMAIL_PORT = getenv('MAILGUN_SMTP_PORT')

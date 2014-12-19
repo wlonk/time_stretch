@@ -256,6 +256,7 @@ WSGI_APPLICATION = 'wsgi.application'
 AUTHENTICATION_BACKENDS = (
     "django.contrib.auth.backends.ModelBackend",
 )
+# END AUTHENTICATION CONFIGURATION
 
 # SLUGLIFIER
 AUTOSLUG_SLUGIFY_FUNCTION = "slugify.slugify"
