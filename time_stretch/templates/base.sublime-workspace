@@ -1,0 +1,1306 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"SE",
+				"SECRET_KEY"
+			],
+			[
+				"assert",
+				"assertEqual	function"
+			],
+			[
+				"building",
+				"building_initials"
+			],
+			[
+				"int",
+				"interval_duration"
+			],
+			[
+				"tran",
+				"transition"
+			],
+			[
+				"unreliab",
+				"unreliable_gold"
+			],
+			[
+				"ran",
+				"rangeRoundBands"
+			],
+			[
+				"lst",
+				"lstKeys"
+			],
+			[
+				"retrun",
+				"return_ary"
+			],
+			[
+				"timeline_",
+				"timeline_idx"
+			],
+			[
+				"asser",
+				"assertEqual	function"
+			],
+			[
+				"enemy_",
+				"enemy_buildings"
+			],
+			[
+				"replay_",
+				"replay_log	statement"
+			],
+			[
+				"combat_",
+				"combat_names	statement"
+			],
+			[
+				"default",
+				"defaultdict	class"
+			],
+			[
+				"intiia",
+				"initial_count"
+			],
+			[
+				"dct",
+				"deaths_ct"
+			],
+			[
+				"de",
+				"defaultdict"
+			],
+			[
+				"v",
+				"view	View"
+			],
+			[
+				"make",
+				"make_matchset	function"
+			],
+			[
+				"Ec",
+				"Exception	class"
+			],
+			[
+				"make_",
+				"make_recipe"
+			],
+			[
+				"pl",
+				"player_winrate_json	function"
+			],
+			[
+				"player",
+				"playermatchsummary"
+			],
+			[
+				"Skill",
+				"SkillBuild	class"
+			],
+			[
+				"for",
+				"foreign_key	import"
+			],
+			[
+				"assi",
+				"assignment"
+			],
+			[
+				"is_",
+				"is_competitive"
+			],
+			[
+				"mommy",
+				"mommy_recipes	module"
+			],
+			[
+				"momm",
+				"mommy_recipes	module"
+			],
+			[
+				"assign",
+				"Assignment	class"
+			],
+			[
+				"Hero",
+				"HeroDossier	class"
+			],
+			[
+				"hero",
+				"HeroFactory	class"
+			],
+			[
+				"testcase",
+				"testcase	testcase"
+			],
+			[
+				"item",
+				"item_0"
+			],
+			[
+				"account",
+				"account_id"
+			],
+			[
+				"matches_",
+				"matches_desired"
+			],
+			[
+				"parse",
+				"parse_preview	function"
+			],
+			[
+				"build",
+				"SkillBuild"
+			],
+			[
+				"creep",
+				"creep_kill_log	function"
+			],
+			[
+				"replay",
+				"replay_stream"
+			],
+			[
+				"urll",
+				"urllib"
+			],
+			[
+				"parser",
+				"parser_id_lst	statement"
+			],
+			[
+				"parser_",
+				"parser_id_lst"
+			],
+			[
+				"Player",
+				"PlayerMatchSummary	class"
+			],
+			[
+				"Pla",
+				"PlayerMatchSummary	class"
+			],
+			[
+				"game",
+				"game_events"
+			],
+			[
+				"data",
+				"datadrivendota	module"
+			],
+			[
+				"match_e",
+				"match_set_1"
+			],
+			[
+				"intell",
+				"intelligence"
+			],
+			[
+				"asse",
+				"assemble_pros	function"
+			],
+			[
+				"api",
+				"api_context	statement"
+			],
+			[
+				"Team",
+				"TeamDossier	class"
+			],
+			[
+				"League",
+				"LeagueDossier	class"
+			],
+			[
+				"Leag",
+				"LeagueDossier	class"
+			],
+			[
+				"le",
+				"left_index	statement"
+			],
+			[
+				"None",
+				"NotImplementedError	class"
+			],
+			[
+				"teamd",
+				"teamdossier"
+			],
+			[
+				"For",
+				"ForeignKey	class"
+			],
+			[
+				"De",
+				"DetailView	class"
+			],
+			[
+				"Lea",
+				"LeagueDossier	class"
+			],
+			[
+				"DateD",
+				"DateTimeField	class"
+			],
+			[
+				"cha",
+				"CharField	class"
+			],
+			[
+				"intelligence",
+				"intelligence_gain"
+			],
+			[
+				"render",
+				"render_to_response	function"
+			],
+			[
+				"req",
+				"request_limit"
+			],
+			[
+				"clea",
+				"cleaned_data"
+			],
+			[
+				"form",
+				"format	function"
+			],
+			[
+				"userpro",
+				"userprofile"
+			],
+			[
+				"In",
+				"IntegerField	class"
+			],
+			[
+				"wh",
+				"which_side"
+			],
+			[
+				"border",
+				"border-color"
+			],
+			[
+				"interest-",
+				"interest-color"
+			],
+			[
+				"background",
+				"background-color"
+			],
+			[
+				"Model",
+				"ModelForm	ModelForm"
+			],
+			[
+				"emai",
+				"EmailField	class"
+			],
+			[
+				"No",
+				"NoDataFound	import"
+			],
+			[
+				"skill",
+				"skill_sample_matches	statement"
+			],
+			[
+				"test",
+				"TestCase	import"
+			],
+			[
+				"game_",
+				"game_events"
+			],
+			[
+				"endg",
+				"endgame_players	statement"
+			],
+			[
+				"Tassel",
+				"TasselPlot	class"
+			],
+			[
+				"jsoN",
+				"json_data	statement"
+			],
+			[
+				"class",
+				"class_selector"
+			],
+			[
+				"group_",
+				"group_list"
+			],
+			[
+				"groups",
+				"groups"
+			],
+			[
+				"url",
+				"urlresolvers	import"
+			],
+			[
+				"p1_role",
+				"p1_role_dict	statement"
+			],
+			[
+				"p1",
+				"p1_role_dict"
+			],
+			[
+				"radiant",
+				"radiant_summaries	statement"
+			],
+			[
+				"assignment",
+				"assignment_set"
+			],
+			[
+				"u",
+				"u"
+			],
+			[
+				"gam",
+				"GameMode"
+			],
+			[
+				"ItemWinrate",
+				"ItemWinrateView	class"
+			],
+			[
+				"Mul",
+				"MultiGameModeSelect	class"
+			],
+			[
+				"match",
+				"match_id"
+			],
+			[
+				"playermat",
+				"playermatchsummary__"
+			],
+			[
+				"ima",
+				"ImageField	import"
+			],
+			[
+				"all",
+				"all_heroes	statement"
+			],
+			[
+				"player_",
+				"player_versus_winrate_json"
+			],
+			[
+				"text-",
+				"text-decoration"
+			],
+			[
+				"outer",
+				"outerWidth"
+			],
+			[
+				"select_",
+				"select_related"
+			],
+			[
+				"div",
+				"placement_div"
+			],
+			[
+				"Outer",
+				"outerWidth"
+			],
+			[
+				"get",
+				"get_object_or_404  (function)"
+			],
+			[
+				"in",
+				"intelligence"
+			],
+			[
+				"str",
+				"strength"
+			],
+			[
+				"strength",
+				"strength_gain"
+			],
+			[
+				"selected",
+				"selected_heroes	(local, instance)"
+			],
+			[
+				"re",
+				"reverse	(builtin, function)"
+			],
+			[
+				"x",
+				"x	(local, instance)"
+			],
+			[
+				"err",
+				"err	(global, instance)"
+			],
+			[
+				"options",
+				"optionsGiven"
+			],
+			[
+				"y",
+				"ylab	(local, instance)"
+			],
+			[
+				"DIV",
+				"div	Tag"
+			],
+			[
+				"group",
+				"group_vector_list	(local, instance)"
+			],
+			[
+				"End",
+				"EndgameChart	(imported, instance)"
+			],
+			[
+				"doubled",
+				"doubled_param_list	(global, instance)"
+			],
+			[
+				"mul",
+				"MultipleChoiceField  (class)"
+			],
+			[
+				"BROKER_",
+				"BROKER_POOL_LIMIT"
+			],
+			[
+				"child",
+				"child	(global, function)"
+			],
+			[
+				"arg",
+				"arg	(local, instance)"
+			],
+			[
+				"uuid",
+				"uuid4  (function)"
+			],
+			[
+				"ST",
+				"STATICFILES_DIRS"
+			],
+			[
+				"STATI",
+				"STATICFILES_DIRS"
+			],
+			[
+				"grde",
+				"grdevices	(local, instance)"
+			],
+			[
+				"name",
+				"name_list	(local, instance)"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 332.0,
+		"selected_items":
+		[
+			[
+				"html",
+				"Set Syntax: HTML (Django)"
+			],
+			[
+				"python",
+				"Set Syntax: Python"
+			],
+			[
+				"prett",
+				"Pretty JSON: Format (Pretty Print) JSON"
+			],
+			[
+				"pretty",
+				"Pretty JSON: Format (Pretty Print) JSON"
+			],
+			[
+				"pret",
+				"Pretty JSON: Format (Pretty Print) JSON"
+			],
+			[
+				"pre",
+				"Pretty JSON: Format (Pretty Print) JSON"
+			],
+			[
+				"js",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"jsh",
+				"JSHint"
+			],
+			[
+				"jshi",
+				"JSHint"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"htm",
+				"Set Syntax: HTML (Django)"
+			],
+			[
+				"gist",
+				"Gist: Create Private Gist"
+			],
+			[
+				"javasc",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"java",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"py",
+				"Set Syntax: Python"
+			],
+			[
+				"pyth",
+				"Set Syntax: Python"
+			],
+			[
+				"make",
+				"SnippetMaker: Make Snippet"
+			],
+			[
+				"djan",
+				"Set Syntax: Python Django"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"syntax",
+				"Set Syntax: Python"
+			],
+			[
+				"ed",
+				"SnippetMaker: Edit Snippet"
+			],
+			[
+				"Snippet: class",
+				"Snippet: New Class"
+			],
+			[
+				"ht",
+				"Set Syntax: HTML (Django)"
+			],
+			[
+				"bash",
+				"Set Syntax: Shell Script (Bash)"
+			],
+			[
+				"json",
+				"Set Syntax: JSON"
+			],
+			[
+				"rett",
+				"Pretty JSON: JSON 2 XML"
+			],
+			[
+				"pyt",
+				"Set Syntax: Python"
+			],
+			[
+				"packa",
+				"Preferences: Browse Packages"
+			],
+			[
+				"console",
+				"Anaconda: Show error list"
+			],
+			[
+				"settings",
+				"Preferences: SublimeLinter Settings – Default"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"sor",
+				"Sort Lines"
+			],
+			[
+				"prefer",
+				"Preferences: Settings - User"
+			],
+			[
+				"create",
+				"Gist: Create Private Gist"
+			],
+			[
+				"private",
+				"Gist: Create Private Gist"
+			],
+			[
+				"dja",
+				"Set Syntax: Python Django"
+			],
+			[
+				"sort",
+				"Sort Lines"
+			],
+			[
+				"secret",
+				"Gist: Create Private Gist"
+			],
+			[
+				"git",
+				"Git: Gitk"
+			],
+			[
+				"secre",
+				"Gist: Create Private Gist"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"bro",
+				"Preferences: Browse Packages"
+			],
+			[
+				"pac",
+				"Preferences: Browse Packages"
+			],
+			[
+				"dj",
+				"Set Syntax: HTML (Django)"
+			],
+			[
+				"css",
+				"Tidy CSS (Low Compression)"
+			],
+			[
+				"package",
+				"Package Control: Install Package"
+			],
+			[
+				"django",
+				"Set Syntax: HTML (Django)"
+			],
+			[
+				"djang",
+				"Set Syntax: HTML (Django)"
+			],
+			[
+				"goto",
+				"Goto Documentation"
+			],
+			[
+				"snipp",
+				"Snippet: filter"
+			],
+			[
+				"subl",
+				"SublimeCodeIntel: Enable Plugin"
+			],
+			[
+				"codeintel",
+				"SublimeCodeIntel: Disable Plugin"
+			],
+			[
+				"codeint",
+				"SublimeCodeIntel: Reset"
+			],
+			[
+				"lint",
+				"SublimeLinter: Show Error List"
+			],
+			[
+				"save",
+				"Project: Save As"
+			],
+			[
+				"add",
+				"Project: Add Folder"
+			],
+			[
+				"Package",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control",
+				"Package Control: Install Package"
+			],
+			[
+				"",
+				"About"
+			]
+		],
+		"width": 462.0
+	},
+	"console":
+	{
+		"height": 139.0,
+		"history":
+		[
+			"x",
+			"x = range(0,10)",
+			"range(0,10)",
+			"print range(0,10)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/ben/Projects/electographics/electographics/electographics/settings/common.py",
+		"/home/ben/Projects/cookiecutter-django/{{cookiecutter.repo_name}}/{{cookiecutter.repo_name}}/{{cookiecutter.repo_name}}/settings/common.py",
+		"/home/ben/Projects/electographics/electographics/electographics/settings/production.py",
+		"/home/ben/Projects/cookiecutter-django/{{cookiecutter.repo_name}}/{{cookiecutter.repo_name}}/{{cookiecutter.repo_name}}/settings/production.py",
+		"/home/ben/Projects/cookiecutter-django/{{cookiecutter.repo_name}}/requirements/production.txt",
+		"/home/ben/.virtualenvs/electographics/bin/postactivate",
+		"/home/ben/Projects/time_stretch/time_stretch/time_stretch/settings/production.py",
+		"/home/ben/.virtualenvs/personal/bin/postactivate",
+		"/home/ben/Projects/electographics/electographics/static/css/override_variables.less",
+		"/home/ben/Projects/electographics/electographics/templates/base.html",
+		"/home/ben/Projects/electographics/requirements/production.txt",
+		"/home/ben/Projects/electographics/Procfile",
+		"/home/ben/Projects/cookiecutter-django/{{cookiecutter.repo_name}}/requirements/base.txt",
+		"/home/ben/Projects/electographics/.gitignore",
+		"/home/ben/Projects/electographics/electographics/electographics/settings/local.py",
+		"/home/ben/Projects/electographics/requirements/base.txt",
+		"/home/ben/Projects/cookiecutter-django/{{cookiecutter.repo_name}}/{{cookiecutter.repo_name}}/templates/base.html",
+		"/home/ben/Projects/electographics/electographics/urls.py",
+		"/home/ben/Projects/cookiecutter-django/{{cookiecutter.repo_name}}/{{cookiecutter.repo_name}}/urls.py",
+		"/home/ben/Projects/datadrivendota/datadrivendota/datadrivendota/datadrivendota/urls.py",
+		"/home/ben/Projects/datadrivendota/datadrivendota/datadrivendota/templates/robots.txt",
+		"/home/ben/Projects/datadrivendota/datadrivendota/datadrivendota/datadrivendota/settings/base.py",
+		"/home/ben/Projects/datadrivendota/datadrivendota/datadrivendota/datadrivendota/settings/production.py",
+		"/home/ben/Projects/datadrivendota/datadrivendota/datadrivendota/datadrivendota/settings/local.py",
+		"/home/ben/Projects/datadrivendota/datadrivendota/convenience files/item_hack.py",
+		"/home/ben/Projects/smoke2/parse_hack.py",
+		"/home/ben/Projects/smoke2/class_test.py",
+		"/home/ben/Projects/smoke2/1052392617_timeline.json",
+		"/home/ben/Projects/smoke2/parse/replay_log.py",
+		"/home/ben/Projects/datadrivendota/datadrivendota/Procfile",
+		"/home/ben/.xsession-errors",
+		"/home/ben/.ICEauthority",
+		"/home/ben/Projects/datadrivendota/datadrivendota/convenience files/scrape calls.py",
+		"/home/ben/Projects/smoke2/None_timeline.json",
+		"/home/ben/Projects/datadrivendota/datadrivendota/datadrivendota/heroes/templates/heroes/detail.html",
+		"/home/ben/Projects/smoke2/new_test.py",
+		"/home/ben/Projects/smoke2/dotacharts.py",
+		"/home/ben/Projects/smoke2/test_frag.py",
+		"/home/ben/Projects/datadrivendota/datadrivendota/datadrivendota/parse_hack.py",
+		"/home/ben/Projects/datadrivendota/datadrivendota/datadrivendota/replay_hack.py",
+		"/home/ben/Projects/node_heroku_test/index.js",
+		"/home/ben/Projects/datadrivendota/datadrivendota/datadrivendota/static/js/charting.js",
+		"/home/ben/Projects/datadrivendota/datadrivendota/datadrivendota/matches/templates/matches/parse_match.html",
+		"/home/ben/Projects/datadrivendota/datadrivendota/datadrivendota/item_hack.py",
+		"/home/ben/Projects/node-dota2/test/index.js",
+		"/home/ben/Projects/datadrivendota/datadrivendota/datadrivendota/static/replay_parse_json/787453665_timeline.json",
+		"/home/ben/Projects/datadrivendota/datadrivendota/datadrivendota/datadrivendota/s3utils.py",
+		"/home/ben/Projects/smoke2/785785899_timeline.json",
+		"/home/ben/Projects/datadrivendota/datadrivendota/convenience files/scrollbar.js",
+		"/home/ben/Projects/dota2_item_sprites/src/make_sheet.py",
+		"/home/ben/.config/sublime-text-3/Packages/JSHint Gutter/JSHint.sublime-settings",
+		"/home/ben/Projects/smoke2/replay_log.py",
+		"/home/ben/Projects/datadrivendota/datadrivendota/datadrivendota/static/css/icons_png.css",
+		"/home/ben/Projects/dota2_item_sprites/assets/icons_png.css",
+		"/home/ben/Projects/smoke2/kill_test.py",
+		"/home/ben/Projects/datadrivendota/datadrivendota/datadrivendota/matches/templates/matches/_match_cards.html",
+		"/home/ben/Projects/datadrivendota/datadrivendota/datadrivendota/templates/home.html",
+		"/home/ben/Projects/datadrivendota/datadrivendota/datadrivendota/static/css/dota2minimapheroes.css",
+		"/home/ben/Projects/smoke2/test.py",
+		"/home/ben/Projects/smoke2/replay_log/replay_log.py",
+		"/home/ben/Projects/smoke2/replay_log/tests.py",
+		"/home/ben/Projects/smoke2/plot_notes.py",
+		"/home/ben/Projects/threes/tests/tile_test.py",
+		"/home/ben/Projects/threes/tests/threes_test.py",
+		"/home/ben/Projects/threes/tests/board_test.py",
+		"/home/ben/Projects/threes/tests/test_bag.pyc",
+		"/home/ben/Projects/threes/tests/bag_test.py",
+		"/home/ben/Projects/datadrivendota/datadrivendota/requirements/base.txt",
+		"/home/ben/Projects/datadrivendota/datadrivendota/datadrivendota/matches/views.py",
+		"/home/ben/Projects/smoke2/787453665_timeline.json",
+		"/home/ben/Projects/smoke2/787453665_heroes.json",
+		"/home/ben/Projects/datadrivendota/datadrivendota/datadrivendota/matches/templates/matches/_single_match_card.html",
+		"/home/ben/Projects/datadrivendota/datadrivendota/datadrivendota/utils/views.py",
+		"/home/ben/Projects/datadrivendota/datadrivendota/datadrivendota/matches/urls.py",
+		"/home/ben/Projects/smoke2/787453665_chats.json",
+		"/home/ben/Documents/Blog Resources/C9 v Vici Game 1.txt",
+		"/home/ben/Documents/Blog Resources/c9_v_vici.html",
+		"/home/ben/Projects/smoke2/entity_notes.txt",
+		"/home/ben/Projects/datadrivendota/datadrivendota/datadrivendota/static/js/project.js",
+		"/home/ben/Projects/datadrivendota/datadrivendota/datadrivendota/matches/json_data.py",
+		"/home/ben/Projects/datadrivendota/datadrivendota/datadrivendota/utils/charts.py",
+		"/home/ben/Projects/datadrivendota/working_scrollchart_snippet.js",
+		"/home/ben/Projects/datadrivendota/datadrivendota/datadrivendota/static/replay_parse_json/785785899_gold.json",
+		"/home/ben/Projects/datadrivendota/datadrivendota/datadrivendota/static/replay_parse_json/785785899_xp.json",
+		"/home/ben/Projects/datadrivendota/datadrivendota/datadrivendota/static/css/project.css",
+		"/home/ben/Projects/datadrivendota/datadrivendota/datadrivendota/static/css/project.less",
+		"/home/ben/Projects/datadrivendota/datadrivendota/datadrivendota/templates/base.html",
+		"/home/ben/Projects/smoke2/785785899_xp.json",
+		"/home/ben/Documents/Blog Resources/blog_post_plus.json",
+		"/home/ben/Documents/Blog Resources/update_task.py",
+		"/home/ben/Documents/Blog Resources/chat_log.txt",
+		"/home/ben/Projects/datadrivendota/datadrivendota/datadrivendota/matches/management/tasks/valve_api_calls.py",
+		"/home/ben/Projects/datadrivendota/datadrivendota/json_files/npc_heroes.json",
+		"/home/ben/.virtualenvs/ddd_smoke/lib/python2.7/site-packages/zinnia/models_bases/entry.py",
+		"/home/ben/.virtualenvs/ddd_smoke/lib/python2.7/site-packages/zinnia/models/entry.py",
+		"/home/ben/.virtualenvs/ddd_smoke/lib/python2.7/site-packages/zinnia/context_processors.py",
+		"/home/ben/.virtualenvs/ddd_smoke/lib/python2.7/site-packages/zinnia/markups.py",
+		"/home/ben/.virtualenvs/ddd_smoke/lib/python2.7/site-packages/zinnia/templates/admin/zinnia/entry/preview.html",
+		"/home/ben/.virtualenvs/ddd_smoke/lib/python2.7/site-packages/zinnia/managers.py",
+		"/home/ben/.virtualenvs/ddd_smoke/lib/python2.7/site-packages/zinnia/admin/entry.py",
+		"/home/ben/Projects/datadrivendota/datadrivendota/datadrivendota/accounts/templates/accounts/match_import_request.html",
+		"/home/ben/Projects/datadrivendota/datadrivendota/datadrivendota/players/templates/players/match_summary.html",
+		"/home/ben/Projects/datadrivendota/datadrivendota/datadrivendota/assets/js/d3/test/arrays/map-test.js",
+		"/home/ben/Projects/datadrivendota/datadrivendota/datadrivendota/datadrivendota/celery_app.py",
+		"/home/ben/Projects/smoke2/replays/916114015_towers.json",
+		"/home/ben/Projects/smoke2/replays/916114015_kill_dmg.json",
+		"/home/ben/Projects/datadrivendota/datadrivendota/datadrivendota/heroes/management/commands/scrapeabilitydata.py",
+		"/home/ben/Projects/steamodd/vdf_convert.py",
+		"/home/ben/Projects/datadrivendota/datadrivendota/datadrivendota/matches/mommy_recipes.py",
+		"/home/ben/Projects/datadrivendota/datadrivendota/datadrivendota/leagues/tests/tests.py",
+		"/home/ben/Projects/datadrivendota/datadrivendota/datadrivendota/players/tests/tests.py",
+		"/home/ben/Projects/datadrivendota/datadrivendota/datadrivendota/leagues/tests/__init__.py",
+		"/home/ben/Projects/datadrivendota/datadrivendota/datadrivendota/teams/tests/tests.py",
+		"/home/ben/Projects/datadrivendota/datadrivendota/datadrivendota/items/tests/tests.py",
+		"/home/ben/Projects/datadrivendota/datadrivendota/datadrivendota/teams/tests/__init__.py",
+		"/home/ben/Projects/datadrivendota/datadrivendota/datadrivendota/heroes/json_data.py",
+		"/home/ben/Projects/datadrivendota/datadrivendota/datadrivendota/matches/tests/tests.py",
+		"/home/ben/Projects/datadrivendota/datadrivendota/datadrivendota/heroes/mommy_recipes.py",
+		"/home/ben/Projects/datadrivendota/datadrivendota/datadrivendota/players/mommy_recipes.py",
+		"/home/ben/Projects/datadrivendota/datadrivendota/datadrivendota/heroes/tests/tests.py",
+		"/home/ben/Projects/datadrivendota/datadrivendota/convenience files/kernprof test.py",
+		"/home/ben/Projects/datadrivendota/datadrivendota/datadrivendota/matches/models.py",
+		"/home/ben/Projects/datadrivendota/datadrivendota/datadrivendota/players/json_data.py",
+		"/home/ben/Projects/datadrivendota/datadrivendota/tox.ini",
+		"/home/ben/Projects/datadrivendota/datadrivendota/datadrivendota/kernprof test.py",
+		"/home/ben/Projects/datadrivendota/datadrivendota/datadrivendota/teams/models.py",
+		"/home/ben/Projects/datadrivendota/datadrivendota/datadrivendota/players/managers.py",
+		"/home/ben/Projects/datadrivendota/datadrivendota/datadrivendota/teams/managers.py"
+	],
+	"find":
+	{
+		"height": 22.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"production.py",
+			"r.py",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"ben",
+			"electographics",
+			"debug",
+			"/static",
+			"static",
+			"time_stretch",
+			"getenv",
+			"storage",
+			"common",
+			"installed",
+			"common.",
+			"TemplateView",
+			"storage",
+			"getenv",
+			"staticfi",
+			"aws",
+			"s3",
+			"pipeline",
+			"email",
+			"collect",
+			"transition",
+			"comp",
+			"transition",
+			".on",
+			".transition",
+			"rect",
+			"transition",
+			"ordinal",
+			"svg",
+			"famil",
+			"font",
+			"rare",
+			"matches/",
+			"[0-9]{6,14}",
+			"uploadma",
+			"clean_",
+			"match_",
+			"Name",
+			"timeline[",
+			"entities",
+			"            ",
+			": .*$",
+			": 'm_Inventory.m_hItems.0005',",
+			": .*$",
+			"item_",
+			"print",
+			"item",
+			"name_prop",
+			"print",
+			"match",
+			"heroes",
+			"00",
+			"get_hero_ids",
+			"item",
+			"dem",
+			"^1",
+			"/home/ben/Projects/smoke2/replays/",
+			"dem",
+			"/home/ben/Projects/smoke2/replays/",
+			"bootst",
+			" [0-9]+",
+			" Nil",
+			".steam",
+			"print",
+			"next_item",
+			"match.",
+			"exit",
+			"exi",
+			"morp",
+			"winter",
+			"present",
+			"hallow",
+			".exclude(\n        name__icontains='mystery'\n    )",
+			"greev",
+			"myster",
+			"pipeline",
+			"auth",
+			"wards",
+			"ring",
+			"myster",
+			"recip",
+			"necron",
+			"combat_na",
+			"gz",
+			"minimap",
+			", ",
+			"updatingsc",
+			"svg",
+			"'name'",
+			"'id'",
+			"name",
+			"['id']",
+			"heroes.",
+			"'id'",
+			"heroes",
+			"setup",
+			"buildings'",
+			"'name'",
+			"log_b",
+			"wards",
+			"buildings",
+			"state",
+			", 'nam.*'",
+			" ,",
+			"71",
+			"72",
+			",",
+			"buildings",
+			"'time'",
+			"time",
+			"'time",
+			"time",
+			"buildings",
+			"dings",
+			"print",
+			"logg",
+			"map_combat_names",
+			"combat",
+			"previ",
+			"strings",
+			"building_strings",
+			"\">')\n",
+			"updateState(",
+			"circles",
+			"updateState(",
+			"tick_idx",
+			"state",
+			"color"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"me",
+			"project",
+			"electographics",
+			"",
+			"dem',",
+			"'1",
+			"",
+			"dem',",
+			"dem'",
+			"",
+			"\\n",
+			",\\n",
+			"'id'",
+			"",
+			",",
+			":",
+			"spritesheet",
+			"Ben",
+			"Warren",
+			"Christina",
+			"Cecille",
+			"Lauren",
+			"Lola",
+			"",
+			"goodguys",
+			"",
+			"game-1-lineup",
+			"",
+			"tick",
+			"world_data",
+			"chats",
+			"",
+			"@Melee",
+			"@",
+			"",
+			"@",
+			"",
+			"@",
+			"proj",
+			"me",
+			"venv",
+			"proj",
+			"venv",
+			"me",
+			"myvenv",
+			"proj",
+			"\\n\\n\\n",
+			"@",
+			"  Melee",
+			"@",
+			"  ",
+			"",
+			"@",
+			"  ",
+			"",
+			"\\tMelee",
+			"",
+			"\\t",
+			"",
+			" ",
+			"  ",
+			" ",
+			"",
+			"@",
+			"",
+			"validate",
+			"binky",
+			"",
+			"#game-1-lineup",
+			"",
+			"@",
+			"",
+			"goodguys",
+			"",
+			" # ",
+			"\\n",
+			"> ",
+			">",
+			"\"group_var\": 4",
+			"group_var\": 4",
+			",",
+			"{{outcome}}",
+			"hero",
+			"h4",
+			" Chaos Knight ",
+			"Chaos Knight",
+			"Thoughts",
+			"h4",
+			"",
+			"> ",
+			"",
+			"dire",
+			"",
+			"team",
+			"",
+			"Ben",
+			"Rachel",
+			"dire_",
+			": ",
+			"Thoughts",
+			"radiant_cast_list",
+			"dire_cast_list",
+			"summary",
+			"radiant_infodict",
+			"None",
+			"game_modes",
+			"panel_var",
+			"game_modes",
+			"min_date_utc",
+			"'None'",
+			"panel_var",
+			"ChartFormView",
+			"panel_var",
+			"ChartFormView",
+			"datalist",
+			"panel_var",
+			"",
+			"panel_var",
+			"object",
+			"panel_var",
+			"",
+			" = ",
+			"",
+			"hero_chart_api",
+			"",
+			"hero_chart_api",
+			"repeat(1, 1)",
+			"225"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 21.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "base.sublime-project",
+	"replace":
+	{
+		"height": 40.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 317.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

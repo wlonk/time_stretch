@@ -9,6 +9,8 @@
 #     pass
 
 from .common import *
+from os import getenv
+
 
 # This ensures that Django will be able to detect a secure connection
 # properly on Heroku.
@@ -35,12 +37,6 @@ ALLOWED_HOSTS = ["*"]
 # END SITE CONFIGURATION
 
 INSTALLED_APPS += ("gunicorn", )
-
-# STORAGE CONFIGURATION
-# See: http://django-storages.readthedocs.org/en/latest/index.html
-INSTALLED_APPS += (
-    'storages',
-)
 
 # AWS cache settings, don't change unless you know what you're doing:
 AWS_EXPIREY = 60 * 60 * 24 * 7
