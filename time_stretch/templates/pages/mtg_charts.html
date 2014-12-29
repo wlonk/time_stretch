@@ -15,7 +15,7 @@
                     <table id='colors'>
                         <thead>
                             <tr>
-                                <th>Color</th>
+                                <th>Color: Select <span id='all-colors'>All</span> - <span id='no-colors'>None</span></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -52,7 +52,7 @@
                     <table id='rarities'>
                         <thead>
                             <tr>
-                                <th>Rarity</th>
+                                <th>Rarity: Select <span id='all-rarities'>All</span> - <span id='no-rarities'>None</span></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -135,6 +135,29 @@
 
         $(function(){
             $('.picker').hide();
+
+            $('.picker').on('click', function(){
+                $(this).toggleClass('active-color');
+                $(document).trigger('update')
+            })
+
+            $('#all-colors').on('click', function(){
+                $('.color-picker').addClass('active-color');
+                $(document).trigger('update')
+            })
+            $('#no-colors').on('click', function(){
+                $('.color-picker').removeClass('active-color');
+                $(document).trigger('update')
+            })
+
+            $('#all-rarities').on('click', function(){
+                $('.rarity-picker').addClass('active-color');
+                $(document).trigger('update')
+            })
+            $('#no-rarities').on('click', function(){
+                $('.rarity-picker').removeClass('active-color');
+                $(document).trigger('update')
+            })
 
             // Setup
             $.getJSON('http://mtgjson.com/json/SetList.json', function(data){
@@ -392,10 +415,6 @@
             }
 
             // Behavior
-            $('.picker').on('click', function(){
-                $(this).toggleClass('active-color');
-                $(document).trigger('update')
-            })
 
             $(document).on('update', function(){
                 var cards = filterCards();
