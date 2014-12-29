@@ -10,41 +10,66 @@
         </div>
         <div class='col-md-4' id='toggles'>
             <h1>Filtration</h1>
-            <table id='colors'>
-                <thead>
-                    <tr>
-                        <th>Category</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr id='Colorless' class='color-picker'><td>Colorless</td></tr>
-                    <tr id='White' class='color-picker'><td>White</td></tr>
-                    <tr id='Blue' class='color-picker'><td>Blue</td></tr>
-                    <tr id='Black' class='color-picker'><td>Black</td></tr>
-                    <tr id='Red' class='color-picker'><td>Red</td></tr>
-                    <tr id='Green' class='color-picker'><td>Green</td></tr>
-                    <tr id='Abzan' class='color-picker'><td>Abzan</td></tr>
-                    <tr id='Jeskai' class='color-picker'><td>Jeskai</td></tr>
-                    <tr id='Sultai' class='color-picker'><td>Sultai</td></tr>
-                    <tr id='Temur' class='color-picker'><td>Temur</td></tr>
-                    <tr id='Mardu' class='color-picker'><td>Mardu</td></tr>
-                    <tr id='Bant' class='color-picker'><td>Bant</td></tr>
-                    <tr id='Esper' class='color-picker'><td>Esper</td></tr>
-                    <tr id='Grixis' class='color-picker'><td>Grixis</td></tr>
-                    <tr id='Naya' class='color-picker'><td>Naya</td></tr>
-                    <tr id='Jund' class='color-picker'><td>Jund</td></tr>
-                    <tr id='Boros' class='color-picker'><td>Boros</td></tr>
-                    <tr id='Selesnya' class='color-picker'><td>Selesnya</td></tr>
-                    <tr id='Dimir' class='color-picker'><td>Dimir</td></tr>
-                    <tr id='Golgari' class='color-picker'><td>Golgari</td></tr>
-                    <tr id='Orzhov' class='color-picker'><td>Orzhov</td></tr>
-                    <tr id='Gruul' class='color-picker'><td>Gruul</td></tr>
-                    <tr id='Izzet' class='color-picker'><td>Izzet</td></tr>
-                    <tr id='Simic' class='color-picker'><td>Simic</td></tr>
-                    <tr id='Azorius' class='color-picker'><td>Azorius</td></tr>
-                    <tr id='Rakdos' class='color-picker'><td>Rakdos</td></tr>
-                </tbody>
-            </table>
+            <div class='row'>
+                <div class='col-md-6'>
+                    <table id='colors'>
+                        <thead>
+                            <tr>
+                                <th>Color</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr id='Colorless' class='picker picker color-picker'><td>Colorless</td></tr>
+                            <tr id='White' class='picker picker color-picker'><td>White</td></tr>
+                            <tr id='Blue' class='picker picker color-picker'><td>Blue</td></tr>
+                            <tr id='Black' class='picker picker color-picker'><td>Black</td></tr>
+                            <tr id='Red' class='picker color-picker'><td>Red</td></tr>
+                            <tr id='Green' class='picker color-picker'><td>Green</td></tr>
+                            <tr id='Abzan' class='picker color-picker'><td>Abzan</td></tr>
+                            <tr id='Jeskai' class='picker color-picker'><td>Jeskai</td></tr>
+                            <tr id='Sultai' class='picker color-picker'><td>Sultai</td></tr>
+                            <tr id='Temur' class='picker color-picker'><td>Temur</td></tr>
+                            <tr id='Mardu' class='picker color-picker'><td>Mardu</td></tr>
+                            <tr id='Bant' class='picker color-picker'><td>Bant</td></tr>
+                            <tr id='Esper' class='picker color-picker'><td>Esper</td></tr>
+                            <tr id='Grixis' class='picker color-picker'><td>Grixis</td></tr>
+                            <tr id='Naya' class='picker color-picker'><td>Naya</td></tr>
+                            <tr id='Jund' class='picker color-picker'><td>Jund</td></tr>
+                            <tr id='Boros' class='picker color-picker'><td>Boros</td></tr>
+                            <tr id='Selesnya' class='picker color-picker'><td>Selesnya</td></tr>
+                            <tr id='Dimir' class='picker color-picker'><td>Dimir</td></tr>
+                            <tr id='Golgari' class='picker color-picker'><td>Golgari</td></tr>
+                            <tr id='Orzhov' class='picker color-picker'><td>Orzhov</td></tr>
+                            <tr id='Gruul' class='picker color-picker'><td>Gruul</td></tr>
+                            <tr id='Izzet' class='picker color-picker'><td>Izzet</td></tr>
+                            <tr id='Simic' class='picker color-picker'><td>Simic</td></tr>
+                            <tr id='Azorius' class='picker color-picker'><td>Azorius</td></tr>
+                            <tr id='Rakdos' class='picker color-picker'><td>Rakdos</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class='col-md-6'>
+                    <table id='rarities'>
+                        <thead>
+                            <tr>
+                                <th>Rarity</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr id='Common' class='picker rarity-picker'><td>Common</td></tr>
+                            <tr id='Uncommon' class='picker rarity-picker'><td>Uncommon</td></tr>
+                            <tr id='Rare' class='picker rarity-picker'><td>Rare</td></tr>
+                            <tr id='Mythic Rare' class='picker rarity-picker'><td>Mythic Rare</td></tr>
+                            <tr id='Special' class='picker rarity-picker'><td>Special</td></tr>
+                            <tr id='Promo' class='picker rarity-picker'><td>Promo</td></tr>
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
         </div>
         <div class='col-md-8' id='barchart'>
             <h1>Barchart</h1>
@@ -82,37 +107,42 @@
         var rect_draw_width = x_min+rect_width  // for conversion into scale units
         var axisUpdateDuration = 300;
         var barEnterExitDuration = 500;
-        $(function(){
-            $('.color-picker').hide();
-            array_equals = function (comparison, array) {
-                // if the other array is a falsy value, return
-                if (!array)
-                    return false;
 
-                // compare lengths - can save a lot of time
-                if (comparison.length != array.length)
-                    return false;
+        array_equals = function (comparison, array) {
+            // if the other array is a falsy value, return
+            if (!array)
+                return false;
 
-                for (var i = 0, l=comparison.length; i < l; i++) {
-                    // Check if we have nested arrays
-                    if (comparison[i] instanceof Array && array[i] instanceof Array) {
-                        // recurse into the nested arrays
-                        if (!comparison[i].equals(array[i]))
-                            return false;
-                    }
-                    else if (comparison[i] != array[i]) {
-                        // Warning - two different object instances will never be equal: {x:20} != {x:20}
+            // compare lengths - can save a lot of time
+            if (comparison.length != array.length)
+                return false;
+
+            for (var i = 0, l=comparison.length; i < l; i++) {
+                // Check if we have nested arrays
+                if (comparison[i] instanceof Array && array[i] instanceof Array) {
+                    // recurse into the nested arrays
+                    if (!comparison[i].equals(array[i]))
                         return false;
-                    }
                 }
-                return true;
+                else if (comparison[i] != array[i]) {
+                    // Warning - two different object instances will never be equal: {x:20} != {x:20}
+                    return false;
+                }
             }
+            return true;
+        }
+
+
+        $(function(){
+            $('.picker').hide();
 
             // Setup
             $.getJSON('http://mtgjson.com/json/SetList.json', function(data){
                 data.forEach(function(set){
-                    $('#sets').prepend($("<option>").attr('value',set.code).text(set.name));
-                    // $('#sets').append(new Option(set.name, set.code))
+                    $('#sets')
+                        .prepend($("<option>")
+                        .attr('value', set.code)
+                        .text(set.name));
                 })
             })
 
@@ -154,8 +184,26 @@
                         $(this).show('fast')
                     }
                 })
+
+                // Rarities
+                var rare_sample = d3.nest()
+                .key(function(d){return d.rarity})
+                .entries(card_set.cards);
+                rarities = []
+                rare_sample.forEach(function(d){
+                    return rarities.push(d.key)
+                })
+                $('.rarity-picker').each(function(){
+                    if(rarities.indexOf($(this).attr('id')) == -1){
+                        $(this).removeClass('active-color')
+                        $(this).hide('fast')
+                    }else{
+                        $(this).show('fast')
+                    }
+                })
             }
 
+            // Barchart
             var total_width = $('#barchart').width()
             var total_height = 300;
             var margin = {top: 15, right: 15, bottom: 25, left: 35},
@@ -201,6 +249,7 @@
                 .attr("dy", ".71em")
                 .style("text-anchor", "end")
                 .text('Count');
+
 
             // Utility
             function updateImage(card){
@@ -280,21 +329,36 @@
                 })
                 return color_lst
             }
+            function getRarities(){
+                var color_lst =[]
+                $.each($('.rarity-picker.active-color'), function(k, v){
+                    color_lst.push(v.id);
+                })
+                return color_lst
+            }
             function filterCards(){
                 var color_lst = getColors()
+                var rarity_lst = getRarities()
                 var cards = card_set.cards.filter(function(card){
                     return $.inArray(cardColor(card), color_lst)!==-1
+                })
+                cards = cards.filter(function(card){
+                    return $.inArray(card.rarity, rarity_lst)!==-1
                 })
                 return cards
             }
             function rowCard(card){
                 return '<td>'+card.name+'</td><td>'+cardCmc(card)+'</td><td>'+card.rarity+'</td><td>'+card.type+'</td>'
             }
-
             function tableUpdate(cmc, color){
-                tablecards = card_set.cards.filter(function(card){
-                    return cardCmc(card) == cmc && cardColor(card) == color
+                tablecards = filterCards();
+                console.log('table', tablecards);
+                tablecards = tablecards.filter(function(card){
+                    return cardCmc(card) == cmc
+                }).filter(function(card){
+                    return cardColor(card) == color;
                 })
+                console.log('posttable', tablecards);
                 rows = d3.select('#table tbody').selectAll('tr').data(tablecards, function(d){
                     return d.multiverseid
                 });
@@ -328,13 +392,14 @@
             }
 
             // Behavior
-            $('.color-picker').on('click', function(){
+            $('.picker').on('click', function(){
                 $(this).toggleClass('active-color');
                 $(document).trigger('update')
             })
 
             $(document).on('update', function(){
-                var cards = filterCards()
+                var cards = filterCards();
+                console.log(cards);
                 var data = dataFromCards(cards)
                 data.forEach(function(d){
                     d.total = 0
@@ -355,8 +420,6 @@
                 xTransition.ease('linear').call(
                     d3.svg.axis().scale(xScale).orient('bottom').tickFormat(d3.format("d"))
                 )
-
-
 
                 yScale.domain(
                     [0, d3.max(data, function(d){return d.total})]
