@@ -1,1 +1,1 @@
-web:  gunicorn time_stretch.wsgi:application --log-file -
+web:  gunicorn wsgi:application --log-file -
