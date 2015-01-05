@@ -38,3 +38,5 @@ pytz==2014.7
 django-pipeline==1.4.2
 model-mommy==1.2.2
 six==1.7.3
+
+wsgiref==0.1.2
