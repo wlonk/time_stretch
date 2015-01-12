@@ -221,8 +221,12 @@ STATIC_URL = S3_URL + STATIC_DIRECTORY
 #      #std:setting-STATICFILES_DIRS
 # Note: There is a presumption that the first entry here is 'static' so that
 # trash dirs work.
+
+#Used for lesscompiler
+STATICFILES_DIR = normpath(join(SITE_ROOT, 'static'))
+
 STATICFILES_DIRS = (
-    normpath(join(SITE_ROOT, 'static')),
+    STATICFILES_DIR,
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/
@@ -342,6 +346,6 @@ PIPELINE_JS = {
 }
 
 PIPELINE_COMPILERS = (
-    'pipeline.compilers.less.LessCompiler',
+    's3utils.LessCompiler',
 )
 ########## END PIPELINE CONFIGURATION

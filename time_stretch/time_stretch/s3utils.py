@@ -10,6 +10,9 @@ from pipeline.storage import PipelineMixin
 import urllib
 import urlparse
 
+from pipeline.conf import settings
+from pipeline.compilers import SubProcessCompiler
+
 
 # CachedFilesMixin doesn't play well with Boto and S3. It over-quotes things,
 # causing erratic failures. So we subclass.
@@ -35,3 +38,20 @@ class S3PipelineStorage(
 
     def path(self, name):
         return self._normalize_name(name)
+
+
+class LessCompiler(SubProcessCompiler):
+    output_extension = 'css'
+
+    def match_file(self, filename):
+        return filename.endswith('.less')
+
+    def compile_file(self, infile, outfile, outdated=False, force=False):
+        command = "%s %s %s %s" % (
+            settings.PIPELINE_LESS_BINARY,
+            settings.PIPELINE_LESS_ARGUMENTS,
+            infile,
+            outfile
+        )
+        print "Command! {0}".format(command)
+        return self.execute_command(command, cwd=settings.STATICFILES_DIR)
