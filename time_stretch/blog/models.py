@@ -26,3 +26,6 @@ class Entry(models.Model):
 
     objects = models.Manager()
     public = PublicManager()
+
+    def __unicode__(self):
+        return self.title
