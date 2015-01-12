@@ -224,7 +224,6 @@ STATIC_URL = S3_URL + STATIC_DIRECTORY
 
 #Used for lesscompiler
 STATICFILES_DIR = normpath(join(SITE_ROOT, 'static'))
-
 STATICFILES_DIRS = (
     STATICFILES_DIR,
 )
