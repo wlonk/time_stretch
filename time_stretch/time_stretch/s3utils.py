@@ -53,5 +53,4 @@ class LessCompiler(SubProcessCompiler):
             infile,
             outfile
         )
-        print "Command! {0}".format(command)
         return self.execute_command(command, cwd=settings.STATICFILES_DIR)
