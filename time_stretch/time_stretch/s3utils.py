@@ -53,4 +53,5 @@ class LessCompiler(SubProcessCompiler):
             infile,
             outfile
         )
+        print command
         return self.execute_command(command, cwd=settings.STATICFILES_DIR)
