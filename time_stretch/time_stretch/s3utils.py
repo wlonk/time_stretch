@@ -1,5 +1,5 @@
 from storages.backends.s3boto import S3BotoStorage
-# from pipeline.storage import GZIPMixin
+from os import path
 
 StaticRootS3BotoStorage = lambda: S3BotoStorage(location='static')
 MediaRootS3BotoStorage = lambda: S3BotoStorage(location='media')
@@ -12,6 +12,7 @@ import urlparse
 
 from pipeline.conf import settings
 from pipeline.compilers import SubProcessCompiler
+from django.conf import settings as dj_settings
 
 
 # CachedFilesMixin doesn't play well with Boto and S3. It over-quotes things,
@@ -47,6 +48,8 @@ class LessCompiler(SubProcessCompiler):
         return filename.endswith('.less')
 
     def compile_file(self, infile, outfile, outdated=False, force=False):
+        infile = dj_settings.STATICFILES_DIR+'/css/'+path.split(infile)[1]
+        outfile = dj_settings.STATICFILES_DIR+'/css/'+path.split(outfile)[1]
         command = "%s %s %s %s" % (
             settings.PIPELINE_LESS_BINARY,
             settings.PIPELINE_LESS_ARGUMENTS,
@@ -54,4 +57,4 @@ class LessCompiler(SubProcessCompiler):
             outfile
         )
         print command
-        return self.execute_command(command, cwd=settings.STATICFILES_DIR)
+        return self.execute_command(command, cwd=dj_settings.STATICFILES_DIR)
