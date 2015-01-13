@@ -1,6 +1,7 @@
 /*! project specific LESS goes here.*/
 
-@import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,700,400italic);
+@import "colors.less";
 
 /** Palettes:
  * http://www.colourlovers.com/palette/1287232/good
@@ -15,44 +16,33 @@
     #fa8b60
  */
 
-@dark-backing: #444444;
-@prominent-backing: #555555;
-@light-backing: #EEEEEE;
+
 @disabled-backing: darken(@dark-backing, 20%);
-@body-bg: #000000;
 @panel-bg: @dark-backing;
 @well-bg: @dark-backing;
 @input-bg: @prominent-backing;
-@breadcrumb-bg: @dark-backing;
-@pagination-bg: @dark-backing;
+@list-group-bg: @light-backing;
+@breadcrumb-bg: darken(@dark-backing, 10%);
+@pagination-bg: darken(@dark-backing, 10%);
 @pagination-disabled-bg: @disabled-backing;
 @btn-default-bg: @light-backing;
 
 @input-bg-disabled: @disabled-backing;
 @input-group-addon-bg: @light-backing;
 
+
 @legend-color: @light-backing;
-@jumbotron-color: #000000;
-@brand-danger: #ef6d3b;
-@brand-info: #4874F9;
-@brand-success: #43BA5F;
-@brand-warning: #C7CB33;
 
 @state-danger-bg: darken(@brand-danger, 10%);
 @state-info-bg: darken(@brand-info, 10%);
 @state-success-bg: darken(@brand-success, 10%);
 @state-warning-bg: darken(@brand-warning, 10%);
-@brand-primary: #9C365A;
 @state-primary-bg: darken(@brand-primary, 10%);
 
-// #DB0909
-// #36faf9
-@table-bg-hover: #3E3E3E;
-@background-color: #1E1E1E;
-@font-family-sans-serif: 'Ubuntu Mono';
+@font-family-sans-serif: 'Raleway';
 @icon-font-path: '../bootstrap/fonts/';
-@nav-tabs-active-link-hover-bg: @brand-info;
 
+@nav-tabs-active-link-hover-bg: darken(@brand-primary,25%);
 /*
  * @navbar-inverse-bg: #3e1c33;
  * @navbar-inverse-border: darken(@navbar-inverse-bg, 7.5%);
@@ -63,3 +53,11 @@
 @text-color: #f6f7f0;
 
 @container-large-desktop: @container-desktop;
+
+li{
+    color:#555555;
+}
+.panel-footer{
+    color:#555555;
+
+}

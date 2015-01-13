@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,700,400italic);
 /*!
  * Bootstrap v3.0.0
  *
@@ -29,6 +29,12 @@
  * @navbar-inverse-color: #f4cff1;
  * @navbar-inverse-link-active-bg: darken(@navbar-inverse-bg, 7.5%);
  */
+li {
+  color: #555555;
+}
+.panel-footer {
+  color: #555555;
+}
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 html {
   font-family: sans-serif;
@@ -300,7 +306,7 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 body {
-  font-family: 'Ubuntu Mono';
+  font-family: 'Raleway';
   font-size: 14px;
   line-height: 1.428571429;
   color: #f6f7f0;
@@ -3913,7 +3919,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav-tabs > li.active > a:hover,
 .nav-tabs > li.active > a:focus {
   color: #555555;
-  background-color: #4874f9;
+  background-color: #3d1523;
   border: 1px solid #dddddd;
   border-bottom-color: transparent;
   cursor: default;
@@ -4571,7 +4577,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
   padding: 8px 15px;
   margin-bottom: 20px;
   list-style: none;
-  background-color: #444444;
+  background-color: #2b2b2b;
   border-radius: 4px;
 }
 .breadcrumb > li {
@@ -4602,7 +4608,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
   line-height: 1.428571429;
   text-decoration: none;
   color: #9c365a;
-  background-color: #444444;
+  background-color: #2b2b2b;
   border: 1px solid #dddddd;
   margin-left: -1px;
 }
@@ -4691,7 +4697,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 .pager li > span {
   display: inline-block;
   padding: 5px 14px;
-  background-color: #444444;
+  background-color: #2b2b2b;
   border: 1px solid #dddddd;
   border-radius: 15px;
 }
@@ -4713,7 +4719,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 .pager .disabled > a:focus,
 .pager .disabled > span {
   color: #777777;
-  background-color: #444444;
+  background-color: #2b2b2b;
   cursor: not-allowed;
 }
 .label {
@@ -5104,7 +5110,7 @@ a.thumbnail.active {
   display: block;
   padding: 10px 15px;
   margin-bottom: -1px;
-  background-color: #ffffff;
+  background-color: #eeeeee;
   border: 1px solid #dddddd;
 }
 .list-group-item:first-child {
@@ -5774,7 +5780,7 @@ button.close {
   z-index: 1070;
   display: block;
   visibility: visible;
-  font-family: 'Ubuntu Mono';
+  font-family: 'Raleway';
   font-size: 12px;
   font-weight: normal;
   line-height: 1.4;
@@ -5881,7 +5887,7 @@ button.close {
   display: none;
   max-width: 276px;
   padding: 1px;
-  font-family: 'Ubuntu Mono';
+  font-family: 'Raleway';
   font-size: 14px;
   font-weight: normal;
   line-height: 1.428571429;
