@@ -15,23 +15,35 @@
     #fa8b60
  */
 
-@dark-backing: #222222;
+@dark-backing: #444444;
+@prominent-backing: #555555;
 @light-backing: #EEEEEE;
+@disabled-backing: darken(@dark-backing, 20%);
 @body-bg: #000000;
 @panel-bg: @dark-backing;
 @well-bg: @dark-backing;
-@input-bg: @dark-backing;
+@input-bg: @prominent-backing;
 @breadcrumb-bg: @dark-backing;
 @pagination-bg: @dark-backing;
+@pagination-disabled-bg: @disabled-backing;
 @btn-default-bg: @light-backing;
 
+@input-bg-disabled: @disabled-backing;
+@input-group-addon-bg: @light-backing;
+
+@legend-color: @light-backing;
 @jumbotron-color: #000000;
 @brand-danger: #ef6d3b;
-@brand-info: #f6dca2;
-@brand-success: #90c5a9;
-@brand-warning: #fa8b60;
+@brand-info: #4874F9;
+@brand-success: #43BA5F;
+@brand-warning: #C7CB33;
 
-@brand-primary: #36faf9;
+@state-danger-bg: darken(@brand-danger, 10%);
+@state-info-bg: darken(@brand-info, 10%);
+@state-success-bg: darken(@brand-success, 10%);
+@state-warning-bg: darken(@brand-warning, 10%);
+@brand-primary: #9C365A;
+@state-primary-bg: darken(@brand-primary, 10%);
 
 // #DB0909
 // #36faf9
