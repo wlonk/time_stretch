@@ -48,6 +48,10 @@ class LessCompiler(SubProcessCompiler):
         return filename.endswith('.less')
 
     def compile_file(self, infile, outfile, outdated=False, force=False):
+        # The smart thing would be to make this take the directory fragments
+        # from after the static root that pipeline supplies.
+        # But I don't know the best way to do that at the moment.
+
         infile = dj_settings.STATICFILES_DIR+'/css/'+path.split(infile)[1]
         outfile = dj_settings.STATICFILES_DIR+'/css/'+path.split(outfile)[1]
         command = "%s %s %s %s" % (

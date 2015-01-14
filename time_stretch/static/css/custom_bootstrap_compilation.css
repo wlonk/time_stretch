@@ -29,7 +29,7 @@
  * @navbar-inverse-color: #f4cff1;
  * @navbar-inverse-link-active-bg: darken(@navbar-inverse-bg, 7.5%);
  */
-li {
+.list-group > li {
   color: #555555;
 }
 .panel-footer {
