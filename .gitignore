@@ -37,5 +37,6 @@ time_stretch.sublime-*
 
 time_stretch/assets
 
-
 .anvil
+
+local_notes/
