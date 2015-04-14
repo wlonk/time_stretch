@@ -3,13 +3,7 @@
 {% block content %}
     <div class='row' id='entry-list'>
     {% for entry in entry_list %}
-        <div class='col-md-12'>
-            <div class='blog-entry'>
-            <h1 class='entry-title'>{{entry.title}}</h1>
-            <p>{{entry.content|safe}}</p>
-            <p class='entry-info'>{{entry.created}}</p>
-            </div>
-        </div>
+        {% include "_entry.html" %}
     {% endfor %}
     </div>
 {% endblock content %}

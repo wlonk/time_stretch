@@ -1,7 +1,6 @@
 # from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 from .models import Entry
-from django.http import HttpResponse
 
 
 class EntryListView(ListView):
@@ -13,7 +12,3 @@ class EntryListView(ListView):
 class EntryDetailView(DetailView):
     model = Entry
     pk_url_kwarg = 'entry_id'
-
-
-def entry_test(request):
-    return HttpResponse('Hi!')
