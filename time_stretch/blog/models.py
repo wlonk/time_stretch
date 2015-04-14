@@ -1,7 +1,11 @@
 from django.db import models
 from django.utils import timezone
 from .fields import AutoDatetimeField
-from .managers import PublicManager
+from .managers import (
+    PublicManager,
+    LoginManager,
+    PrivateManager,
+    )
 
 
 # Create your models here.
@@ -26,6 +30,8 @@ class Entry(models.Model):
 
     objects = models.Manager()
     public = PublicManager()
+    login = LoginManager()
+    private = PrivateManager()
 
     def __unicode__(self):
         return self.title

@@ -12,3 +12,15 @@ class EntryListView(ListView):
 class EntryDetailView(DetailView):
     model = Entry
     pk_url_kwarg = 'entry_id'
+
+    def get_object(self):
+        pk = int(self.kwargs.get(self.pk_url_kwarg, None))
+        print pk
+        if self.request.user.is_superuser:
+            return Entry.private.get(pk=pk)
+
+        elif self.request.user.is_authenticated():
+            return Entry.login.get(pk=pk)
+
+        else:
+            return Entry.public.get(pk=pk)
