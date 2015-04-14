@@ -1,5 +1,6 @@
 from django.conf.urls import url, patterns
 from blog import views
+from feeds import EntryFeed
 
 urlpatterns = patterns(
     '',
@@ -9,4 +10,5 @@ urlpatterns = patterns(
         views.EntryDetailView.as_view(),
         name='entry'
     ),
+    url(r'^rss/$', EntryFeed(), name='entry_feed'),
 )

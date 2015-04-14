@@ -1,3 +1,4 @@
+from django.core.urlresolvers import reverse
 from django.db import models
 from django.utils import timezone
 from .fields import AutoDatetimeField
@@ -20,6 +21,7 @@ class Entry(models.Model):
         )
 
     title = models.CharField(max_length=200)
+    description = models.CharField(max_length=200, default='')  # RSS
     content = models.TextField()
     created = models.DateTimeField(default=timezone.now)
     modified = AutoDatetimeField(default=timezone.now)
@@ -35,3 +37,7 @@ class Entry(models.Model):
 
     def __unicode__(self):
         return self.title
+
+    def get_absolute_url(self):
+        print self
+        return reverse('blog:entry', kwargs={'entry_id': str(self.id)})
