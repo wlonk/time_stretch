@@ -39,5 +39,4 @@ class Entry(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        print self
         return reverse('blog:entry', kwargs={'entry_id': str(self.id)})
