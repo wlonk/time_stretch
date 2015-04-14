@@ -25,7 +25,7 @@ urlpatterns = patterns('',
 
 
     # Your stuff: custom urls go here
-    url(r'^blog/', include('blog.urls', namespace='blog')),
+    url(r'^blog/$', include('blog.urls', namespace='blog')),
     url(
         r'^styles/$',
         TemplateView.as_view(template_name='pages/bootstrap_test.html'),
