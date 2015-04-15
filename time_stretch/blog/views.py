@@ -6,7 +6,15 @@ from .models import Entry
 class EntryListView(ListView):
 
     def get_queryset(self):
-        return Entry.public.all().order_by('-created')
+        if self.request.user.is_superuser:
+            qs = Entry.private.all()
+
+        elif self.request.user.is_authenticated():
+            qs = Entry.login.all()
+
+        else:
+            qs = Entry.public.all()
+        return qs.order_by('-created')
 
 
 class EntryDetailView(DetailView):
