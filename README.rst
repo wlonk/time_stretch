@@ -11,18 +11,16 @@ Settings
 
 For configuration purposes, use the following in your venv postactivate:
 
-```
-export DJANGO_SETTINGS_MODULE='settings.local'
-export DJANGO_PROJECT_DIR='/home/ben/Projects/time_stretch'
-export DATABASE_URL=<url>
+    export DJANGO_SETTINGS_MODULE='settings.local'
+    export DJANGO_PROJECT_DIR='/home/ben/Projects/time_stretch'
+    export DATABASE_URL=<url>
 
-# AWS
-export AWS_ACCESS_KEY_ID=<key>
-export AWS_SECRET_ACCESS_KEY=<key>
-export AWS_STORAGE_BUCKET_NAME=<bucket>
+    # AWS
+    export AWS_ACCESS_KEY_ID=<key>
+    export AWS_SECRET_ACCESS_KEY=<key>
+    export AWS_STORAGE_BUCKET_NAME=<bucket>
 
-export SECRET_KEY=<key>
-```
+    export SECRET_KEY=<key>
 
 
 Getting up and running
