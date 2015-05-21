@@ -1,7 +1,7 @@
 time_stretch
 ==============================
 
-Personal page
+Ben's personal site.
 
 
 LICENSE: BSD
@@ -9,31 +9,20 @@ LICENSE: BSD
 Settings
 ------------
 
-time_stretch relies extensively on environment settings which **will not work with Apache/mod_wsgi setups**. It has been deployed successfully with both Gunicorn/Nginx and even uWSGI/Nginx.
+For configuration purposes, use the following in your venv postactivate:
 
-For configuration purposes, the following table maps the 'time_stretch' environment variables to their Django setting:
+export DJANGO_SETTINGS_MODULE='settings.local'
+export DJANGO_PROJECT_DIR='/home/ben/Projects/time_stretch'
+export DATABASE_URL=<url>
 
-======================================= =========================== ============================================== ===========================================
-Environment Variable                    Django Setting              Development Default                            Production Default
-======================================= =========================== ============================================== ===========================================
-DJANGO_AWS_ACCESS_KEY_ID                AWS_ACCESS_KEY_ID           n/a                                            raises error
-DJANGO_AWS_SECRET_ACCESS_KEY            AWS_SECRET_ACCESS_KEY       n/a                                            raises error
-DJANGO_AWS_STORAGE_BUCKET_NAME          AWS_STORAGE_BUCKET_NAME     n/a                                            raises error
-DJANGO_CACHES                           CACHES                      locmem                                         memcached
-DJANGO_DATABASES                        DATABASES                   See code                                       See code
-DJANGO_DEBUG                            DEBUG                       True                                           False
-DJANGO_EMAIL_BACKEND                    EMAIL_BACKEND               django.core.mail.backends.console.EmailBackend django.core.mail.backends.smtp.EmailBackend
-DJANGO_SECRET_KEY                       SECRET_KEY                  CHANGEME!!!                                    raises error
-DJANGO_SECURE_BROWSER_XSS_FILTER        SECURE_BROWSER_XSS_FILTER   n/a                                            True
-DJANGO_SECURE_SSL_REDIRECT              SECURE_SSL_REDIRECT         n/a                                            True
-DJANGO_SECURE_CONTENT_TYPE_NOSNIFF      SECURE_CONTENT_TYPE_NOSNIFF n/a                                            True
-DJANGO_SECURE_FRAME_DENY                SECURE_FRAME_DENY           n/a                                            True
-DJANGO_SECURE_HSTS_INCLUDE_SUBDOMAINS   HSTS_INCLUDE_SUBDOMAINS     n/a                                            True
-DJANGO_SESSION_COOKIE_HTTPONLY          SESSION_COOKIE_HTTPONLY     n/a                                            True
-DJANGO_SESSION_COOKIE_SECURE            SESSION_COOKIE_SECURE       n/a                                            False
-======================================= =========================== ============================================== ===========================================
+# AWS
+export AWS_ACCESS_KEY_ID=<key>
+export AWS_SECRET_ACCESS_KEY=<key>
+export AWS_STORAGE_BUCKET_NAME=<bucket>
 
-* TODO: Add vendor-added settings in another table
+export SECRET_KEY=<key>
+
+
 
 Getting up and running
 ----------------------
@@ -84,7 +73,7 @@ It's time to write the code!!!
 Deployment
 ------------
 
-It is possible to deploy to Heroku or to your own server by using Dokku, an open source Heroku clone. 
+It is possible to deploy to Heroku or to your own server by using Dokku, an open source Heroku clone.
 
 Heroku
 ^^^^^^
@@ -109,44 +98,3 @@ Run these commands to deploy the project to Heroku:
     heroku run python time_stretch/manage.py createsuperuser
     heroku open
 
-Dokku
-^^^^^
-
-You need to make sure you have a server running Dokku with at least 1GB of RAM. Backing services are
-added just like in Heroku however you must ensure you have the relevant Dokku plugins installed. 
-
-.. code-block:: bash
-
-    cd /var/lib/dokku/plugins
-    git clone https://github.com/rlaneve/dokku-link.git link
-    git clone https://github.com/jezdez/dokku-memcached-plugin memcached
-    git clone https://github.com/jezdez/dokku-postgres-plugin postgres
-    dokku plugins-install
-
-You can specify the buildpack you wish to use by creating a file name .env containing the following.
-
-.. code-block:: bash
-
-    export BUILDPACK_URL=<repository>
-
-You can then deploy by running the following commands.
-
-..  code-block:: bash
-
-    git remote add dokku dokku@yourservername.com:time_stretch
-    git push dokku master
-    ssh -t dokku@yourservername.com dokku memcached:create time_stretch-memcached
-    ssh -t dokku@yourservername.com dokku memcached:link time_stretch-memcached time_stretch
-    ssh -t dokku@yourservername.com dokku postgres:create time_stretch-postgres
-    ssh -t dokku@yourservername.com dokku postgres:link time_stretch-postgres time_stretch
-    ssh -t dokku@yourservername.com dokku config:set time_stretch DJANGO_CONFIGURATION=Production
-    ssh -t dokku@yourservername.com dokku config:set time_stretch DJANGO_SECRET_KEY=RANDOM_SECRET_KEY_HERE
-    ssh -t dokku@yourservername.com dokku config:set time_stretch DJANGO_AWS_ACCESS_KEY_ID=YOUR_AWS_ID_HERE
-    ssh -t dokku@yourservername.com dokku config:set time_stretch DJANGO_AWS_SECRET_ACCESS_KEY=YOUR_AWS_SECRET_ACCESS_KEY_HERE
-    ssh -t dokku@yourservername.com dokku config:set time_stretch DJANGO_AWS_STORAGE_BUCKET_NAME=YOUR_AWS_S3_BUCKET_NAME_HERE
-    ssh -t dokku@yourservername.com dokku config:set time_stretch SENDGRID_USERNAME=YOUR_SENDGRID_USERNAME
-    ssh -t dokku@yourservername.com dokku config:set time_stretch SENDGRID_PASSWORD=YOUR_SENDGRID_PASSWORD
-    ssh -t dokku@yourservername.com dokku run time_stretch python time_stretch/manage.py migrate
-    ssh -t dokku@yourservername.com dokku run time_stretch python time_stretch/manage.py createsuperuser
-
-When deploying via Dokku make sure you backup your database in some fashion as it is NOT done automatically.
